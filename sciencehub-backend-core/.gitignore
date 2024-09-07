@@ -4,5 +4,3 @@
 # Ignore build folders
 bin/
 obj/
-.vs/
-/.vs/
