@@ -15,7 +15,7 @@ namespace sciencehub_backend_core.Core.Users.Services
             _logger = logger;
         }
 
-        public async Task<List<UserSmallDTO>> GetUsersByIdsAsync(List<Guid> userIds)
+        public async Task<List<UserSmallDTO>> GetUsersByIdsAsync(List<int> userIds)
         {
             var users = await _context.Users.Where(u => userIds.Contains(u.Id))
                 .Select(u => new UserSmallDTO

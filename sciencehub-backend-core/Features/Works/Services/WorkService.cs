@@ -21,7 +21,7 @@ namespace sciencehub_backend_core.Features.Works.Services
             return await _workRepository.GetWorkAsync(workId);
         }
 
-        public async Task<IEnumerable<WorkSearchDTO>> GetWorksByUserIdAsync(Guid userId)
+        public async Task<IEnumerable<WorkSearchDTO>> GetWorksByUserIdAsync(int userId)
         {
             var works = await _workRepository.GetWorksByUserIdAsync(userId);
 
@@ -35,7 +35,7 @@ namespace sciencehub_backend_core.Features.Works.Services
             return works.Select(mapWorkToWorkSearchDTO);
         }
 
-        public async Task<IEnumerable<WorkSearchDTO>> GetWorksByTypeAndUserIdAsync(WorkType type, Guid userId)
+        public async Task<IEnumerable<WorkSearchDTO>> GetWorksByTypeAndUserIdAsync(WorkType type, int userId)
         {
             var works = await _workRepository.GetWorksByTypeAndUserIdAsync(type, userId);
 
@@ -49,7 +49,7 @@ namespace sciencehub_backend_core.Features.Works.Services
             return works.Select(mapWorkToWorkSearchDTO);
         }
 
-        public async Task<PaginatedResults<WorkSearchDTO>> SearchWorksByTypeAndUserIdAsync(Guid userId, WorkType workType, SearchParams searchParams)
+        public async Task<PaginatedResults<WorkSearchDTO>> SearchWorksByTypeAndUserIdAsync(int userId, WorkType workType, SearchParams searchParams)
         {
             var paginatedWorks = await _workRepository.SearchWorksByTypeAndUserIdAsync(userId, workType, searchParams);
 

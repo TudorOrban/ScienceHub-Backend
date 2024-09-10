@@ -16,7 +16,7 @@ namespace sciencehub_backend_community.Core.Users.Services
             _logger = logger;
         }
 
-        public async Task<List<UserSmallDTO>> GetUsersByIdsAsync(List<Guid> userIds) 
+        public async Task<List<UserSmallDTO>> GetUsersByIdsAsync(List<int> userIds) 
         {
             var client = _clientFactory.CreateClient("CoreService");
 

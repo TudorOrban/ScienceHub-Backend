@@ -26,7 +26,7 @@ namespace sciencehub_backend_core.Features.Works.Controllers
         }
 
         [HttpGet("user/{userId}")]
-        public async Task<ActionResult<IEnumerable<WorkSearchDTO>>> GetWorksByUserId(Guid userId)
+        public async Task<ActionResult<IEnumerable<WorkSearchDTO>>> GetWorksByUserId(int userId)
         {
             var works = await _workService.GetWorksByUserIdAsync(userId);
             return Ok(works);
@@ -40,7 +40,7 @@ namespace sciencehub_backend_core.Features.Works.Controllers
         }
 
         [HttpGet("type/{type}/user/{userId}")]
-        public async Task<ActionResult<IEnumerable<WorkSearchDTO>>> GetWorksByTypeAndUserId(string workTypeString, Guid userId)
+        public async Task<ActionResult<IEnumerable<WorkSearchDTO>>> GetWorksByTypeAndUserId(string workTypeString, int userId)
         {
             var type = Enum.Parse<WorkType>(workTypeString);
             var works = await _workService.GetWorksByTypeAndUserIdAsync(type, userId);
@@ -66,7 +66,7 @@ namespace sciencehub_backend_core.Features.Works.Controllers
             [FromQuery] bool sortDescending = false)
         {
             WorkType workType = Enum.Parse<WorkType>(workTypeString);
-            Guid userId = Guid.Parse(userIdString);
+            int userId = int.Parse(userIdString);
             SearchParams searchParams = new SearchParams { SearchQuery = searchTerm, Page = page, ItemsPerPage = pageSize, SortBy = sortBy, SortDescending = sortDescending };
             
             var works = await _workService.SearchWorksByTypeAndUserIdAsync(userId, workType, searchParams);

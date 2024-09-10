@@ -11,7 +11,7 @@ namespace sciencehub_backend_core.Features.Works.Models
 
         [ForeignKey("User")]
         [Column("user_id")]
-        public Guid UserId { get; set; }
+        public int UserId { get; set; }
 
         [Column("role")]
         public string? Role;

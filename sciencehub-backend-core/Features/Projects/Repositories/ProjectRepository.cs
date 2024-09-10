@@ -14,7 +14,7 @@ namespace sciencehub_backend_core.Features.Projects.Repositories
             _context = context;
         }
 
-        public async Task<PaginatedResults<Project>> GetProjectsByUserIdAsync(Guid userId, SearchParams searchParams)
+        public async Task<PaginatedResults<Project>> GetProjectsByUserIdAsync(int userId, SearchParams searchParams)
         {
             IQueryable<Project> query = _context.Projects
                 .Where(p => p.ProjectUsers.Any(pu => pu.UserId == userId));

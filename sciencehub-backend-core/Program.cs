@@ -7,8 +7,6 @@ builder.WebHost.UseUrls($"http://*:{port}");
 
 var app = sciencehub_backend_core.Core.Config.ConfigLoader.ConfigureApplication(builder, false);
 
-// Test log
-app.Logger.LogInformation("Hello, world!");
 app.Run();
 
 

@@ -4,6 +4,6 @@ namespace sciencehub_backend_community.Features.Discussions.Services
 {
     public interface IDiscussionService
     {
-        Task<List<DiscussionSearchDTO>> GetDiscussionsByUserId(Guid userId);
+        Task<List<DiscussionSearchDTO>> GetDiscussionsByUserId(int userId);
     }
 }

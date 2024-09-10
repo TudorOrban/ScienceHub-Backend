@@ -89,7 +89,7 @@ namespace sciencehub_backend_core.Features.Reviews.Repositories
         {
             foreach (var userIdString in userIdStrings)
             {
-                if (!Guid.TryParse(userIdString, out var userId))
+                if (!int.TryParse(userIdString, out var userId))
                 {
                     return;
                 }

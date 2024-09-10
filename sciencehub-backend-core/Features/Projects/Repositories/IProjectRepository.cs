@@ -6,6 +6,6 @@ namespace sciencehub_backend_core.Features.Projects.Repositories
 {
     public interface IProjectRepository
     {
-        Task<PaginatedResults<Project>> GetProjectsByUserIdAsync(Guid userId, SearchParams searchParams);
+        Task<PaginatedResults<Project>> GetProjectsByUserIdAsync(int userId, SearchParams searchParams);
     }
 }

@@ -33,7 +33,7 @@ namespace sciencehub_backend_core.Features.Projects.Services
             _databaseValidation = databaseValidation;
         }
         
-        public async Task<PaginatedResults<ProjectSearchDTO>> GetProjectsByUserIdAsync(Guid userId, SearchParams searchParams)
+        public async Task<PaginatedResults<ProjectSearchDTO>> GetProjectsByUserIdAsync(int userId, SearchParams searchParams)
         {
             var paginatedProjects = await _projectRepository.GetProjectsByUserIdAsync(userId, searchParams);
             

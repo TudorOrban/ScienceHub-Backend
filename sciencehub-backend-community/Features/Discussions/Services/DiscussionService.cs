@@ -21,7 +21,7 @@ namespace sciencehub_backend_community.Features.Discussions.Services
             _logger = logger;
         }
 
-        public async Task<List<DiscussionSearchDTO>> GetDiscussionsByUserId(Guid userId) {
+        public async Task<List<DiscussionSearchDTO>> GetDiscussionsByUserId(int userId) {
             var discussions = await _discussionRepository.GetDiscussionsByUserId(userId);
             
             var userIds = discussions.Select(d => d.UserId).Distinct().ToList();

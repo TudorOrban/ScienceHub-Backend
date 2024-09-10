@@ -10,7 +10,7 @@ namespace sciencehub_backend_core.Features.Reviews.Services
         Task<WorkReview> GetWorkReviewByIdAsync(int reviewId);
         Task<List<WorkReview>> GetWorkReviewsByWorkIdAsync(int workId, WorkType workType);
         Task<PaginatedResults<WorkReviewSearchDTO>> SearchWorkReviewsByWorkIdAsync(int workId, WorkType workType, SearchParams searchParams, bool? small = true);
-        Task<PaginatedResults<WorkReviewSearchDTO>> SearchWorkReviewsByUserIdAsync(Guid userId, SearchParams searchParams);
+        Task<PaginatedResults<WorkReviewSearchDTO>> SearchWorkReviewsByUserIdAsync(int userId, SearchParams searchParams);
         Task<WorkReview> CreateWorkReviewAsync(CreateReviewDTO createReviewDTO);
         Task<WorkReview> UpdateWorkReviewAsync(UpdateReviewDTO updateReviewDTO);
         Task<int> DeleteWorkReviewAsync(int reviewId);

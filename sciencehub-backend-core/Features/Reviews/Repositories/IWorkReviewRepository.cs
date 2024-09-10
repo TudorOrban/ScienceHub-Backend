@@ -8,7 +8,7 @@ namespace sciencehub_backend_core.Features.Reviews.Repositories
     {
         Task<WorkReview> FindWorkReviewByIdAsync(int reviewId);
         Task<PaginatedResults<WorkReview>> SearchWorkReviewsByWorkIdAsync(int workId, WorkType workType, SearchParams searchParams);
-        Task<PaginatedResults<WorkReview>> SearchWorkReviewsByUserIdAsync(Guid userId, SearchParams searchParams);
+        Task<PaginatedResults<WorkReview>> SearchWorkReviewsByUserIdAsync(int userId, SearchParams searchParams);
         Task<List<WorkReview>> FindWorkReviewsByWorkIdAsync(int workId, WorkType workType);
         Task<WorkReview> CreateWorkReviewAsync(WorkReview newWorkReview, IEnumerable<string> userIdStrings);
         Task<WorkReview> UpdateWorkReviewAsync(WorkReview workReview);

@@ -31,7 +31,7 @@ namespace sciencehub_backend_core.Features.Works.Repositories
                 .ToListAsync();
         }
 
-        public async Task<IEnumerable<Work>> GetWorksByUserIdAsync(Guid userId)
+        public async Task<IEnumerable<Work>> GetWorksByUserIdAsync(int userId)
         {
             return await _context.WorkUsers
                 .Where(wu => wu.UserId == userId)
@@ -40,7 +40,7 @@ namespace sciencehub_backend_core.Features.Works.Repositories
                 .ToListAsync();
         }
 
-        public async Task<IEnumerable<Work>> GetWorksByTypeAndUserIdAsync(WorkType workType, Guid userId)
+        public async Task<IEnumerable<Work>> GetWorksByTypeAndUserIdAsync(WorkType workType, int userId)
         {
             return await _context.WorkUsers
                 .Where(wu => wu.UserId == userId)
@@ -58,7 +58,7 @@ namespace sciencehub_backend_core.Features.Works.Repositories
                 .ToListAsync();
         }
 
-        public async Task<PaginatedResults<Work>> SearchWorksByTypeAndUserIdAsync(Guid userId, WorkType workType, SearchParams searchParams)
+        public async Task<PaginatedResults<Work>> SearchWorksByTypeAndUserIdAsync(int userId, WorkType workType, SearchParams searchParams)
         {
             var query = _context.WorkUsers
                 .Where(wu => wu.UserId == userId)

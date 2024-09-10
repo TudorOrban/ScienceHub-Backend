@@ -31,7 +31,7 @@ namespace sciencehub_backend_core.Features.Projects.Controllers
             [FromQuery] string sortBy = "Name",
             [FromQuery] bool sortDescending = false)
         {
-            if (!Guid.TryParse(userId, out Guid parsedUserId))
+            if (!int.TryParse(userId, out int parsedUserId))
             {
                 return BadRequest("Invalid User ID format");
             }

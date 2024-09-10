@@ -6,7 +6,7 @@ namespace sciencehub_backend_community.Features.Discussions.DTOs
     public class DiscussionSearchDTO
     {
         public long Id { get; set; }
-        public Guid UserId { get; set; }
+        public int UserId { get; set; }
         public UserSmallDTO? User { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }

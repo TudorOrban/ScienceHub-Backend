@@ -11,7 +11,7 @@ namespace sciencehub_backend_core.Features.Issues.Models
 
         [ForeignKey("User")]
         [Column("user_id")]
-        public Guid UserId { get; set; }
+        public int UserId { get; set; }
 
         public WorkIssue WorkIssue { get; set; }
         public User User { get; set; }

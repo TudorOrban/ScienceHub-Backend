@@ -16,7 +16,7 @@ namespace sciencehub_backend_community.Features.Discussions.Controllers
         }
 
         [HttpGet("user/{userId}")]
-        public async Task<ActionResult<List<DiscussionSearchDTO>>> GetDiscussionsByUserId(Guid userId)
+        public async Task<ActionResult<List<DiscussionSearchDTO>>> GetDiscussionsByUserId(int userId)
         {
             return await _discussionService.GetDiscussionsByUserId(userId);
         }

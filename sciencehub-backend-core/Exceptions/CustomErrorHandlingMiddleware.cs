@@ -33,7 +33,10 @@ namespace sciencehub_backend_core.Exceptions
 
                 var errorResponse = new ErrorResponse
                 {
-                    Message = "A server error occurred."
+                    Title = "Database error",
+                    Message = "An error occurred while interacting with the database.",
+                    Detail = dbEx.Message,
+                    ResourceType = "Database"
                 };
 
                 await context.Response.WriteAsync(JsonConvert.SerializeObject(errorResponse));
@@ -214,5 +217,8 @@ namespace sciencehub_backend_core.Exceptions
 
 public class ErrorResponse
 {
-    public string Message { get; set; } = null!;
+    public string? Title { get; set; }
+    public string? Message { get; set; }
+    public string? Detail { get; set; }
+    public string? ResourceType { get; set; }
 }

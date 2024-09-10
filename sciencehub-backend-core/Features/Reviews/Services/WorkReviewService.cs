@@ -41,7 +41,7 @@ namespace sciencehub_backend_core.Features.Reviews.Services
             };
         }
 
-        public async Task<PaginatedResults<WorkReviewSearchDTO>> SearchWorkReviewsByUserIdAsync(Guid userId, SearchParams searchParams)
+        public async Task<PaginatedResults<WorkReviewSearchDTO>> SearchWorkReviewsByUserIdAsync(int userId, SearchParams searchParams)
         {
             var reviews = await _workReviewRepository.SearchWorkReviewsByUserIdAsync(userId, searchParams);
 

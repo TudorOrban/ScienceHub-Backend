@@ -13,7 +13,7 @@ namespace sciencehub_backend_community.Features.Discussions.Repositories
             _context = context;
         }
 
-        public async Task<List<Discussion>> GetDiscussionsByUserId(Guid userId) 
+        public async Task<List<Discussion>> GetDiscussionsByUserId(int userId) 
         {
             return await _context.Discussions
                 .Where(d => d.UserId == userId)

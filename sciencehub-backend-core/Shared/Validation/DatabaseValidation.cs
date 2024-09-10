@@ -16,9 +16,9 @@ namespace sciencehub_backend_core.Shared.Validation
 
 
         // Validation of user id
-        public async Task<Guid> ValidateUserId(string userIdString)
+        public async Task<int> ValidateUserId(string userIdString)
         {
-            if (!Guid.TryParse(userIdString, out var userId))
+            if (!int.TryParse(userIdString, out var userId))
             {
                 throw new InvalidUserIdException();
             }

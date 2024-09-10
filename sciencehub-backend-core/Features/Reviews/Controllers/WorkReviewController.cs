@@ -53,7 +53,7 @@ namespace sciencehub_backend_core.Features.Reviews.Controllers
 
         [HttpGet("user/{userId}/search")]
         public async Task<ActionResult<PaginatedResults<WorkReviewSearchDTO>>> SearchWorkReviewsByUserId(
-            Guid userId, 
+            int userId, 
             [FromQuery] string searchTerm = "", 
             [FromQuery] int page = 1, 
             [FromQuery] int pageSize = 10, 

@@ -54,7 +54,7 @@ namespace sciencehub_backend_core.Features.Reviews.Repositories
             };
         }
 
-        public async Task<PaginatedResults<WorkReview>> SearchWorkReviewsByUserIdAsync(Guid userId, SearchParams searchParams) 
+        public async Task<PaginatedResults<WorkReview>> SearchWorkReviewsByUserIdAsync(int userId, SearchParams searchParams) 
         {
             var query = _context.WorkReviewUsers
                 .Where(pru => pru.UserId == userId)
@@ -117,7 +117,7 @@ namespace sciencehub_backend_core.Features.Reviews.Repositories
         {
             foreach (var userIdString in userIdStrings)
             {
-                if (!Guid.TryParse(userIdString, out var userId))
+                if (!int.TryParse(userIdString, out var userId))
                 {
                     return;
                 }

@@ -12,7 +12,7 @@ namespace sciencehub_backend_community.Features.Discussions.Models
         public long Id { get; set; }
 
         [Column("user_id")]
-        public Guid UserId { get; set; }
+        public int UserId { get; set; }
 
         [NotMapped] 
         public User? User { get; set; }
