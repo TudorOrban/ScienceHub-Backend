@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: postgres
+  name: postgresql-core
 spec:
   selector:
     matchLabels:
-      app: postgres
+      app: postgresql-core
   template:
     metadata:
       labels:
-        app: postgres
+        app: postgresql-core
     spec:
       containers:
-      - name: postgres
+      - name: postgresql-core
         image: postgres:latest
         env:
         - name: POSTGRES_DB
@@ -29,28 +29,16 @@ spec:
       volumes:
       - name: db-dump
         configMap:
-          name: sciencehub-db-dump
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: postgres-pvc
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 2Gi
+          name: postgresql-core-initdb
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: postgres-service
+  name: postgresql-core-service
 spec:
   selector:
-    app: postgres
+    app: postgresql-core
   ports:
     - protocol: TCP
       port: 5432
       targetPort: 5432
-
