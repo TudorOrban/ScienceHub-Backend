@@ -66,6 +66,7 @@ namespace sciencehub_backend_core.Features.Projects.Services
                 Id = p.Id,
                 Name = p.Name,
                 Title = p.Title,
+                Description = p.Description,
                 Users = p.ProjectUsers.Select(pu => new UserSmallDTO
                 {
                     Id = pu.UserId,

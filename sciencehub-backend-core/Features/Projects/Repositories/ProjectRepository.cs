@@ -45,10 +45,10 @@ namespace sciencehub_backend_core.Features.Projects.Repositories
         {
             switch (sortBy)
             {
-                case "Name":
+                case "name":
                     query = descending ? query.OrderByDescending(p => p.Name) : query.OrderBy(p => p.Name);
                     break;
-                case "Title":
+                case "title":
                     query = descending ? query.OrderByDescending(p => p.Title) : query.OrderBy(p => p.Title);
                     break;
                 case "createdAt":

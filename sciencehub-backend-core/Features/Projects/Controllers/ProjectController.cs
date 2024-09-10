@@ -26,16 +26,16 @@ namespace sciencehub_backend_core.Features.Projects.Controllers
         public async Task<ActionResult<PaginatedResults<ProjectSearchDTO>>> GetProjects(
             string userId,
             [FromQuery] string searchTerm = "",
-            [FromQuery] int page = 1,
-            [FromQuery] int pageSize = 10,
             [FromQuery] string sortBy = "Name",
-            [FromQuery] bool sortDescending = false)
+            [FromQuery] bool sortDescending = false,
+            [FromQuery] int page = 1,
+            [FromQuery] int itemsPerPage = 10)
         {
             if (!int.TryParse(userId, out int parsedUserId))
             {
                 return BadRequest("Invalid User ID format");
             }
-            SearchParams searchParams = new SearchParams { SearchQuery = searchTerm, Page = page, ItemsPerPage = pageSize, SortBy = sortBy, SortDescending = sortDescending };
+            SearchParams searchParams = new SearchParams { SearchQuery = searchTerm, SortBy = sortBy, SortDescending = sortDescending, Page = page, ItemsPerPage = itemsPerPage };
 
             var projects = await _projectService.GetProjectsByUserIdAsync(parsedUserId, searchParams);
 
