@@ -1,4 +1,6 @@
 ﻿
+using sciencehub_backend_core.Core.Users.DTOs;
+
 namespace sciencehub_backend_core.Features.Projects.Services
 {
     public class ProjectSearchDTO
@@ -8,6 +10,7 @@ namespace sciencehub_backend_core.Features.Projects.Services
         public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
         public List<ProjectUserDTO> ProjectUsers { get; set; } = new List<ProjectUserDTO>();
+        public List<UserSmallDTO> Users { get; set; } = new List<UserSmallDTO>();
 
     }
 

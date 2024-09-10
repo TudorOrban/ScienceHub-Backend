@@ -7,6 +7,7 @@ using sciencehub_backend_core.Shared.Sanitation;
 using Microsoft.EntityFrameworkCore;
 using sciencehub_backend_core.Shared.Search;
 using sciencehub_backend_core.Features.Projects.Repositories;
+using sciencehub_backend_core.Core.Users.DTOs;
 
 namespace sciencehub_backend_core.Features.Projects.Services
 {
@@ -65,17 +66,11 @@ namespace sciencehub_backend_core.Features.Projects.Services
                 Id = p.Id,
                 Name = p.Name,
                 Title = p.Title,
-                ProjectUsers = p.ProjectUsers.Select(pu => new ProjectUserDTO
+                Users = p.ProjectUsers.Select(pu => new UserSmallDTO
                 {
-                    ProjectId = pu.ProjectId,
-                    UserId = pu.UserId,
-                    Role = pu.Role,
-                    User = new UserDTO
-                    {
-                        Id = pu.User.Id,
-                        Username = pu.User.Username,
-                        FullName = pu.User.FullName
-                    }
+                    Id = pu.UserId,
+                    Username = pu.User.Username,
+                    FullName = pu.User.FullName
                 }).ToList()
             }).ToList();
 
