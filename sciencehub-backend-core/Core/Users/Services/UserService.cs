@@ -1,6 +1,7 @@
 using sciencehub_backend_core.Data;
 using Microsoft.EntityFrameworkCore;
 using sciencehub_backend_core.Core.Users.DTOs;
+using sciencehub_backend_core.Exceptions.Errors;
 
 namespace sciencehub_backend_core.Core.Users.Services
 {
@@ -13,6 +14,25 @@ namespace sciencehub_backend_core.Core.Users.Services
         {
             _context = context;
             _logger = logger;
+        }
+
+        public async Task<UserSmallDTO> GetUserByIdAsync(int id)
+        {
+            var user = await _context.Users
+                .Where(u => u.Id == id)
+                .Select(u => new UserSmallDTO
+                {
+                    Id = u.Id,
+                    Username = u.Username,
+                    FullName = u.FullName,
+                    CreatedAt = u.CreatedAt.HasValue ? u.CreatedAt.Value.ToString("yyyy-MM-dd HH:mm:ss") : null,
+                })
+                .FirstOrDefaultAsync();
+            if (user == null)
+            {
+                throw new ResourceNotFoundException("User", id.ToString());
+            }
+            return user;
         }
 
         public async Task<List<UserSmallDTO>> GetUsersByIdsAsync(List<int> userIds)

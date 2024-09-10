@@ -16,6 +16,12 @@ namespace sciencehub_backend_core.Core.Users.Controllers
             _userService = userService;
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<UserSmallDTO>> GetUserByIdAsync(int id)
+        {
+            return await _userService.GetUserByIdAsync(id);
+        }
+
         [HttpGet("small")]
         public async Task<ActionResult<List<UserSmallDTO>>> GetUsersByIdsAsync([FromQuery] List<int> userIds)
         {
