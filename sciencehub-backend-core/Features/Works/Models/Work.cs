@@ -13,35 +13,40 @@ namespace sciencehub_backend_core.Features.Works.Models
         [Column("id")]
         public int Id { get; set; }
 
-        [Column("created_at")]
-        public DateTime CreatedAt { get; set; }
-
-        [Column("updated_at")]
-        public DateTime UpdatedAt { get; set; }
-
         [Column("work_type")]
         public WorkType WorkType { get; set; }
 
+        [Column("project_id")]
+        public int? ProjectId { get; set; }
+
+        [Required]
+        [Column("name")]
+        public string Name { get; set; } = string.Empty;
+
+        [Required]
         [Column("title")]
         public string Title { get; set; } = string.Empty;
 
         [Column("description")]
         public string? Description { get; set; }
 
+        [Column("created_at")]
+        public DateTime CreatedAt { get; set; }
+
+        [Column("updated_at")]
+        public DateTime UpdatedAt { get; set; }
+
         [Column("research_score")]
         public float? ResearchScore { get; set; }
 
-        [Column("h_index")]
-        public int? HIndex { get; set; }
+        [Column("total_citations")]
+        public int? TotalCitations { get; set; }
 
-        [Column("citations_count")]
-        public int? CitationsCount { get; set; }
+        [Column("total_upvotes")]
+        public int? TotalUpvotes { get; set; }
 
-        [Column("link")]
-        public string? Link { get; set; }
-
-        [Column("public")]
-        public bool? Public { get; set; }
+        [Column("is_public")]
+        public bool? IsPublic { get; set; }
 
         [Column("current_work_version_id")]
         public int? CurrentWorkVersionId { get; set; }
@@ -81,6 +86,5 @@ namespace sciencehub_backend_core.Features.Works.Models
         }
         
         public ICollection<WorkUser> WorkUsers { get; set; } = new List<WorkUser>();
-        public ICollection<ProjectWork> ProjectWorks { get; set; } = new List<ProjectWork>();
     }
 }

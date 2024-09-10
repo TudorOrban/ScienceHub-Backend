@@ -6,21 +6,18 @@ namespace sciencehub_backend_core.Features.Projects.DTO
     {
         [Required(ErrorMessage = "Title is required.")]
         [StringLength(100, ErrorMessage = "Title must be less than 100 characters long.")]
-        public string Title { get; set; }
+        public string Title { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Name is required.")]
         [StringLength(100, ErrorMessage = "Name must be less than 100 characters long.")]
         [RegularExpression(@"^[^\\/~]*$", ErrorMessage = "The name cannot contain backslashes, slashes or tildes")]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         public string? Description { get; set; }
 
         [Required(ErrorMessage = "At least one user is required.")]
-        public List<string> Users { get; set; }
+        public List<string> Users { get; set; } = new List<string>();
 
-        [Required(ErrorMessage = "Link is required")]
-        public string Link { get; set; }
-
-        public bool Public { get; set; }
+        public bool IsPublic { get; set; }
     }
 }

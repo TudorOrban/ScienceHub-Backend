@@ -24,20 +24,34 @@ namespace sciencehub_backend_core.Features.Works.Repositories
 
         public async Task<IEnumerable<Work>> GetWorksByProjectIdAsync(int projectId)
         {
-            return await _context.ProjectWorks
-                .Where(pw => pw.ProjectId == projectId)
-                .Select(pw => pw.Work)
-                .Where(pw => pw != null)
+            return await _context.Works
+                .Where(w => w.ProjectId == projectId)
+                .Where(w => w != null)
                 .ToListAsync();
         }
 
         public async Task<IEnumerable<Work>> GetWorksByUserIdAsync(int userId)
         {
-            return await _context.WorkUsers
+            var workIds = await _context.WorkUsers
                 .Where(wu => wu.UserId == userId)
-                .Select(wu => wu.Work)
-                .Where(w => w != null)
+                .Select(wu => wu.WorkId)
+                .Distinct()
                 .ToListAsync();
+
+            var works = new List<Work>();
+            foreach (var workId in workIds)
+            {
+                var work = await _context.Works
+                    .Include(w => w.WorkUsers)
+                    .ThenInclude(wu => wu.User)
+                    .SingleOrDefaultAsync(w => w.Id == workId);
+                if (work != null)
+                {
+                    works.Add(work);
+                }
+            }
+
+            return works;
         }
 
         public async Task<IEnumerable<Work>> GetWorksByTypeAndUserIdAsync(WorkType workType, int userId)
@@ -51,9 +65,8 @@ namespace sciencehub_backend_core.Features.Works.Repositories
 
         public async Task<IEnumerable<Work>> GetWorksByTypeAndProjectIdAsync(WorkType workType, int projectId)
         {
-            return await _context.ProjectWorks
-                .Where(pw => pw.ProjectId == projectId)
-                .Select(pw => pw.Work)
+            return await _context.Works
+                .Where(w => w.ProjectId == projectId)
                 .Where(w => w != null && w.WorkType == workType)
                 .ToListAsync();
         }

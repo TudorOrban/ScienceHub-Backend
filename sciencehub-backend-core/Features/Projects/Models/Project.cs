@@ -30,11 +30,14 @@ namespace sciencehub_backend_core.Features.Projects.Models
         [Column("research_score")]
         public int? ResearchScore { get; set; }
 
-        [Column("link")]
-        public string? Link { get; set; }
+        [Column("h_index")]
+        public int? HIndex { get; set; }
 
-        [Column("public")]
-        public bool? Public { get; set; }
+        [Column("total_citations")]
+        public int? TotalCitations { get; set; }
+
+        [Column("is_public")]
+        public bool? IsPublic { get; set; }
 
         [Column("current_project_version_id")]
         public int? CurrentProjectVersionId { get; set; }
@@ -57,7 +60,6 @@ namespace sciencehub_backend_core.Features.Projects.Models
             }
         }
 
-        public ICollection<ProjectWork> ProjectWorks { get; set; } = new List<ProjectWork>();
         public ICollection<ProjectUser> ProjectUsers { get; set; } = new List<ProjectUser>();
     }
 }

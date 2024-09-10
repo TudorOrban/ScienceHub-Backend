@@ -1,3 +1,4 @@
+using sciencehub_backend_core.Core.Users.DTOs;
 using sciencehub_backend_core.Features.Works.DTOs;
 using sciencehub_backend_core.Features.Works.Models;
 using sciencehub_backend_core.Features.Works.Repositories;
@@ -93,12 +94,15 @@ namespace sciencehub_backend_core.Features.Works.Services
                 CreatedAt = work.CreatedAt,
                 UpdatedAt = work.UpdatedAt,
                 ResearchScore = work.ResearchScore,
-                HIndex = work.HIndex,
-                CitationsCount = work.CitationsCount,
-                Link = work.Link,
-                Public = work.Public,
+                CitationsCount = work.TotalCitations,
+                IsPublic = work.IsPublic,
                 CurrentWorkVersionId = work.CurrentWorkVersionId,
-                WorkUsers = work.WorkUsers
+                Users = work.WorkUsers.Select(wu => new UserSmallDTO
+                {
+                    Id = wu.UserId,
+                    Username = wu.User.Username,
+                    FullName = wu.User.FullName
+                }).ToList()
             };
         }
 

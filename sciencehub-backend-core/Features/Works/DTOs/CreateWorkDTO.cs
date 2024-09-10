@@ -19,6 +19,6 @@ namespace sciencehub_backend_core.Features.Works.DTOs
         [Required(ErrorMessage = "At least one user is required.")]
         public List<string> Users { get; set; } = new List<string>();
 
-        public bool Public { get; set; }
+        public bool IsPublic { get; set; }
     }
 }

@@ -63,20 +63,6 @@ namespace sciencehub_backend_core.Data
                 .HasOne(pu => pu.User)
                 .WithMany(u => u.WorkUsers)
                 .HasForeignKey(pu => pu.UserId);
-
-            modelBuilder.Entity<ProjectWork>()
-                .ToTable("project_works")
-                .HasKey(pw => new { pw.ProjectId, pw.WorkId });
-
-            modelBuilder.Entity<ProjectWork>()
-                .HasOne(pw => pw.Project)
-                .WithMany(p => p.ProjectWorks)
-                .HasForeignKey(pw => pw.ProjectId);
-
-            modelBuilder.Entity<ProjectWork>()
-                .HasOne(pw => pw.Work)
-                .WithMany(w => w.ProjectWorks)
-                .HasForeignKey(pw => pw.WorkId);
         }
 
         private void ConfigureManagementEntities(ModelBuilder modelBuilder)
@@ -199,7 +185,6 @@ namespace sciencehub_backend_core.Data
         // Works
         public DbSet<Work> Works { get; set; }
         public DbSet<WorkUser> WorkUsers { get; set; }
-        public DbSet<ProjectWork> ProjectWorks { get; set; }
 
         // Version control
         public DbSet<WorkVersion> WorkVersions { get; set; }

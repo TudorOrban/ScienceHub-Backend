@@ -94,8 +94,7 @@ namespace sciencehub_backend_core.Features.Projects.Services
                     Name = _sanitizerService.Sanitize(createProjectDTO.Name),
                     Title = _sanitizerService.Sanitize(createProjectDTO.Title),
                     Description = _sanitizerService.Sanitize(createProjectDTO.Description),
-                    Link = createProjectDTO.Link,
-                    Public = createProjectDTO.Public,
+                    IsPublic = createProjectDTO.IsPublic,
                     ProjectUsers = new List<ProjectUser>(),
                 };
 

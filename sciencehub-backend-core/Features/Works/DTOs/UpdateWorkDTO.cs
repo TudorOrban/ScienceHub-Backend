@@ -18,6 +18,6 @@ namespace sciencehub_backend_core.Features.Works.DTOs
 
         public List<string> Users { get; set; } = new List<string>();
 
-        public bool Public { get; set; }
+        public bool IsPublic { get; set; }
     }
 }

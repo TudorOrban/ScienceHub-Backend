@@ -39,6 +39,7 @@ CREATE TABLE public.projects (
 INSERT INTO public.projects (name, title, description, is_public)
 VALUES ('Alphafold', 'Alphafold - New model for protein folding', 'A new model...', TRUE);
 
+
 CREATE TABLE public.project_users (
     user_id INT NOT NULL,
     project_id INT NOT NULL,
@@ -51,4 +52,44 @@ CREATE TABLE public.project_users (
 INSERT INTO public.project_users (user_id, project_id, role)
 VALUES (1, 1, 'Main Author');
 INSERT INTO public.project_users (user_id, project_id, role)
+VALUES (2, 1, 'Contributor');
+
+SELECT * FROM public.project_users;
+
+CREATE TYPE work_type AS ENUM ('Paper', 'Experiment', 'Dataset', 'DataAnalysis', 'AIModel', 'CodeBlock');
+
+CREATE TABLE public.works (
+	id SERIAL PRIMARY KEY,
+	work_type work_type,
+	project_id INT,
+	name VARCHAR(50) UNIQUE NOT NULL,
+	title VARCHAR(250) NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+	description TEXT,
+	is_public BOOLEAN DEFAULT FALSE,
+	research_score DECIMAL,
+	total_citations INT,
+	total_upvotes INT,
+	current_work_version_id INT,
+	work_metadata JSONB,
+	file_location JSONB,
+	FOREIGN KEY (project_id) REFERENCES public.projects (id) ON DELETE CASCADE
+);
+
+INSERT INTO public.works (work_type, project_id, name, title, description, is_public)
+VALUES ('Paper', 1, 'Alphafold introduction', 'Alphafold - New model for protein folding', 'A new model...', TRUE);
+
+CREATE TABLE public.work_users (
+    user_id INT NOT NULL,
+    work_id INT NOT NULL,
+    role VARCHAR(50),
+    PRIMARY KEY (user_id, work_id),
+    FOREIGN KEY (user_id) REFERENCES public.users (id) ON DELETE CASCADE,
+    FOREIGN KEY (work_id) REFERENCES public.works (id) ON DELETE CASCADE
+);
+
+INSERT INTO public.work_users (user_id, work_id, role)
+VALUES (1, 1, 'Main Author');
+INSERT INTO public.work_users (user_id, work_id, role)
 VALUES (2, 1, 'Contributor');
