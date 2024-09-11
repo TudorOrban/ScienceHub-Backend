@@ -25,7 +25,7 @@ namespace sciencehub_backend_core.Features.Issues.Controllers
             return Ok(Issue);
         }
 
-        [HttpGet("/issueType/{issueType}/user/{userId}/search")]
+        [HttpGet("issueType/{issueTypeString}/user/{userId}/search")]
         public async Task<ActionResult<PaginatedResults<IssueSearchDTO>>> SearchIssuesById(
             int userId,
             string issueTypeString,
