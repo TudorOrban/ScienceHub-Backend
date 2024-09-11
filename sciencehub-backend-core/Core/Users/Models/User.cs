@@ -56,6 +56,7 @@ namespace sciencehub_backend_core.Core.Users.Models
         public ICollection<WorkUser> WorkUsers { get; set; } = new List<WorkUser>();
         public ICollection<ProjectSubmissionUser> ProjectSubmissionUsers { get; set; } = new List<ProjectSubmissionUser>();
         public ICollection<WorkSubmissionUser> WorkSubmissionUsers { get; set; } = new List<WorkSubmissionUser>();
+        public ICollection<IssueUser> IssueUsers { get; set; } = new List<IssueUser>();
         public ICollection<ProjectIssueUser> ProjectIssueUsers { get; set; } = new List<ProjectIssueUser>();
         public ICollection<WorkIssueUser> WorkIssueUsers { get; set; } = new List<WorkIssueUser>();
         public ICollection<ProjectReviewUser> ProjectReviewUsers { get; set; } = new List<ProjectReviewUser>();

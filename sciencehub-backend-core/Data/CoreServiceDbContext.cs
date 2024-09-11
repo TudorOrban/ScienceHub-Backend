@@ -109,6 +109,20 @@ namespace sciencehub_backend_core.Data
                 .WithMany(u => u.WorkSubmissionUsers)
                 .HasForeignKey(wsu => wsu.UserId);
 
+            modelBuilder.Entity<IssueUser>()
+                .ToTable("issue_users")
+                .HasKey(iu => new { iu.IssueId, iu.UserId });
+
+            modelBuilder.Entity<IssueUser>()
+                .HasOne(iu => iu.Issue)
+                .WithMany(i => i.IssueUsers)
+                .HasForeignKey(iu => iu.IssueId);
+
+            modelBuilder.Entity<IssueUser>()
+                .HasOne(iu => iu.User)
+                .WithMany(u => u.IssueUsers)
+                .HasForeignKey(iu => iu.UserId);
+
             modelBuilder.Entity<ProjectIssueUser>()
                 .ToTable("project_issue_users")
                 .HasKey(piu => new { piu.ProjectIssueId, piu.UserId });
@@ -199,8 +213,10 @@ namespace sciencehub_backend_core.Data
         public DbSet<WorkSubmissionUser> WorkSubmissionUsers { get; set; }
 
         // Rest of management
+        public DbSet<Issue> Issues { get; set; }
         public DbSet<ProjectIssue> ProjectIssues { get; set; }
         public DbSet<WorkIssue> WorkIssues { get; set; }
+        public DbSet<IssueUser> IssueUsers { get; set; }
         public DbSet<ProjectIssueUser> ProjectIssueUsers { get; set; }
         public DbSet<WorkIssueUser> WorkIssueUsers { get; set; }
         public DbSet<ProjectReview> ProjectReviews { get; set; }
