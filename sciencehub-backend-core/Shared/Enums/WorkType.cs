@@ -13,13 +13,13 @@ namespace sciencehub_backend_core.Shared.Enums
         [PgName("Dataset")]
         Dataset,
 
-        [PgName("Data Analysis")]
+        [PgName("DataAnalysis")]
         DataAnalysis,
 
-        [PgName("AI Model")]
+        [PgName("AIModel")]
         AIModel,
 
-        [PgName("Code Block")]
+        [PgName("CodeBlock")]
         CodeBlock,
     }
 }

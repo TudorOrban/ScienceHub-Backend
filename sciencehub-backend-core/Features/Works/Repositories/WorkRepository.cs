@@ -73,20 +73,24 @@ namespace sciencehub_backend_core.Features.Works.Repositories
 
         public async Task<PaginatedResults<Work>> SearchWorksByTypeAndUserIdAsync(int userId, WorkType workType, SearchParams searchParams)
         {
-            var query = _context.WorkUsers
-                .Where(wu => wu.UserId == userId)
-                .Select(wu => wu.Work)
-                .Where(w => w != null && w.WorkType == workType);
+            var query = _context.Works
+                .Include(w => w.WorkUsers)
+                    .ThenInclude(wu => wu.User)
+                .Where(w => w.WorkUsers.Any(wu => wu.UserId == userId) && w.WorkType == workType);
 
+            // Apply search query filtering
             if (!string.IsNullOrEmpty(searchParams.SearchQuery))
             {
                 query = query.Where(w => w.Title.Contains(searchParams.SearchQuery));
             }
 
+            // Apply sorting
             query = ApplySorting(query, searchParams.SortBy, searchParams.SortDescending);
 
+            // Calculate total item count
             var totalItemCount = await query.CountAsync();
 
+            // Pagination
             var works = await query
                 .Skip(((searchParams.Page ?? 1) - 1) * (searchParams.ItemsPerPage ?? 10))
                 .Take(searchParams.ItemsPerPage ?? 10)

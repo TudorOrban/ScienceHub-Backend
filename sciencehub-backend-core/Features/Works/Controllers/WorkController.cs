@@ -61,13 +61,13 @@ namespace sciencehub_backend_core.Features.Works.Controllers
             string workTypeString,
             [FromQuery] string searchTerm = "",
             [FromQuery] int page = 1,
-            [FromQuery] int pageSize = 10,
+            [FromQuery] int itemsPerPage = 10,
             [FromQuery] string sortBy = "createdAt",
             [FromQuery] bool sortDescending = false)
         {
             WorkType workType = Enum.Parse<WorkType>(workTypeString);
             int userId = int.Parse(userIdString);
-            SearchParams searchParams = new SearchParams { SearchQuery = searchTerm, Page = page, ItemsPerPage = pageSize, SortBy = sortBy, SortDescending = sortDescending };
+            SearchParams searchParams = new SearchParams { SearchQuery = searchTerm, Page = page, ItemsPerPage = itemsPerPage, SortBy = sortBy, SortDescending = sortDescending };
             
             var works = await _workService.SearchWorksByTypeAndUserIdAsync(userId, workType, searchParams);
 

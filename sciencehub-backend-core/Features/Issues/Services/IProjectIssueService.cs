@@ -9,6 +9,8 @@ namespace sciencehub_backend_core.Features.Issues.Services
         Task<ProjectIssue> GetProjectIssueByIdAsync(int issueId);
         Task<List<ProjectIssue>> GetProjectIssuesByProjectIdAsync(int projectId);
         Task<PaginatedResults<ProjectIssueSearchDTO>> SearchProjectIssuesByProjectIdAsync(int projectId, SearchParams searchParams, bool? small = true);
+        Task<PaginatedResults<ProjectIssueSearchDTO>> SearchProjectIssuesByUserIdAsync(int userId, SearchParams searchParams, bool? small = true);
+
         Task<ProjectIssue> CreateProjectIssueAsync(CreateIssueDTO createIssueDTO);
         Task<ProjectIssue> UpdateProjectIssueAsync(UpdateIssueDTO updateIssueDTO);
         Task<int> DeleteProjectIssueAsync(int issueId);

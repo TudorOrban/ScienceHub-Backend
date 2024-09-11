@@ -1,3 +1,4 @@
+using sciencehub_backend_core.Core.Users.DTOs;
 using sciencehub_backend_core.Features.Issues.Models;
 using sciencehub_backend_core.Shared.Enums;
 
@@ -13,5 +14,6 @@ namespace sciencehub_backend_core.Features.Issues.DTOs
         public DateTime? CreatedAt { get; set; }
         public IssueStatus? Status { get; set; }        
         public List<WorkIssueUser> WorkIssueUsers { get; set; } = new List<WorkIssueUser>();
+        public List<UserSmallDTO> Users { get; set; } = new List<UserSmallDTO>();
     }
 }

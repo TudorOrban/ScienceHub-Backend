@@ -10,6 +10,7 @@ namespace sciencehub_backend_core.Features.Issues.Services
         Task<WorkIssue> GetWorkIssueByIdAsync(int issueId);
         Task<List<WorkIssue>> GetWorkIssuesByWorkIdAsync(int workId, WorkType workType);
         Task<PaginatedResults<WorkIssueSearchDTO>> SearchWorkIssuesByWorkIdAsync(int workId, WorkType workType, SearchParams searchParams, bool? small = true);
+        Task<PaginatedResults<WorkIssueSearchDTO>> SearchWorkIssuesByUserIdAsync(int userId, SearchParams searchParams, bool? small = true);
         Task<WorkIssue> CreateWorkIssueAsync(CreateIssueDTO createIssueDTO);
         Task<WorkIssue> UpdateWorkIssueAsync(UpdateIssueDTO updateIssueDTO);
         Task<int> DeleteWorkIssueAsync(int issueId);

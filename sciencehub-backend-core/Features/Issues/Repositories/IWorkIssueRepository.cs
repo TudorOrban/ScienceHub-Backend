@@ -8,6 +8,7 @@ namespace sciencehub_backend_core.Features.Issues.Repositories
     {
         Task<WorkIssue> FindWorkIssueByIdAsync(int issueId);
         Task<PaginatedResults<WorkIssue>> SearchWorkIssuesByWorkIdAsync(int workId, WorkType workType, SearchParams searchParams);
+        Task<PaginatedResults<WorkIssue>> SearchWorkIssuesByUserIdAsync(int userId, SearchParams searchParams);
         Task<List<WorkIssue>> FindWorkIssuesByWorkIdAsync(int workId, WorkType workType);
         Task<WorkIssue> CreateWorkIssueAsync(WorkIssue newWorkIssue, IEnumerable<string> userIdStrings);
         Task<WorkIssue> UpdateWorkIssueAsync(WorkIssue workIssue);

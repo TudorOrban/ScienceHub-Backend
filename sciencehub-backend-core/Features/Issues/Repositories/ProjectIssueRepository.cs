@@ -52,6 +52,34 @@ namespace sciencehub_backend_core.Features.Issues.Repositories
                 TotalCount = totalItemCount
             };
         }
+
+        public async Task<PaginatedResults<ProjectIssue>> SearchProjectIssuesByUserIdAsync(int userId, SearchParams searchParams) 
+        {
+            var query = _context.ProjectIssues
+                .Include(i => i.ProjectIssueUsers)
+                    .ThenInclude(iu => iu.User)
+                .Where(pr => pr.ProjectIssueUsers.Any(pu => pu.UserId == userId));
+
+            if (!string.IsNullOrEmpty(searchParams.SearchQuery))
+            {
+                query = query.Where(pr => pr.Title.Contains(searchParams.SearchQuery));
+            }
+
+            query = ApplySorting(query, searchParams.SortBy, searchParams.SortDescending);
+
+            var totalItemCount = await query.CountAsync();
+
+            var projectIssues = await query
+                .Skip(((searchParams.Page ?? 1) - 1) * (searchParams.ItemsPerPage ?? 10))
+                .Take(searchParams.ItemsPerPage ?? 10)
+                .ToListAsync();
+
+            return new PaginatedResults<ProjectIssue>
+            {
+                Results = projectIssues,
+                TotalCount = totalItemCount
+            };
+        }
         
         private IQueryable<ProjectIssue> ApplySorting(IQueryable<ProjectIssue> query, string? sortBy, bool descending)
         {

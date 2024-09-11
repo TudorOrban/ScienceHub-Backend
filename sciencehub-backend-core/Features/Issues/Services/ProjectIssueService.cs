@@ -1,3 +1,4 @@
+using sciencehub_backend_core.Core.Users.DTOs;
 using sciencehub_backend_core.Exceptions.Errors;
 using sciencehub_backend_core.Features.Issues.DTOs;
 using sciencehub_backend_core.Features.Issues.Models;
@@ -42,6 +43,17 @@ namespace sciencehub_backend_core.Features.Issues.Services
             };
         }
 
+        public async Task<PaginatedResults<ProjectIssueSearchDTO>> SearchProjectIssuesByUserIdAsync(int userId, SearchParams searchParams, bool? small = true) 
+        {
+            var issues = await _projectIssueRepository.SearchProjectIssuesByUserIdAsync(userId, searchParams);
+
+            return new PaginatedResults<ProjectIssueSearchDTO>
+            {
+                Results = issues.Results.Select(r => MapToProjectIssueSearchDTO(r, small)).ToList(),
+                TotalCount = issues.TotalCount
+            };
+        }
+
         private ProjectIssueSearchDTO MapToProjectIssueSearchDTO(ProjectIssue r, bool? small)
         {
             var issueDTO = new ProjectIssueSearchDTO
@@ -51,6 +63,12 @@ namespace sciencehub_backend_core.Features.Issues.Services
                 Title = r.Title,
                 Description = r.Description,                    
                 CreatedAt = r.CreatedAt,
+                Users = r.ProjectIssueUsers.Select(u => new UserSmallDTO
+                {
+                    Id = u.UserId,
+                    Username = u.User.Username,
+                    FullName = u.User.FullName
+                }).ToList()
             };
 
             if (small.HasValue && !small.Value)

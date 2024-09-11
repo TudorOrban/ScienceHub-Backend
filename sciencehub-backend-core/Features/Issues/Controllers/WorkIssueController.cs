@@ -50,6 +50,22 @@ namespace sciencehub_backend_core.Features.Issues.Controllers
 
             return Ok(workIssues);
         }
+        
+        [HttpGet("user/{userId}/search")]
+        public async Task<ActionResult<PaginatedResults<WorkIssueSearchDTO>>> SearchWorkIssuesByUserId(
+            int userId,
+            [FromQuery] string searchTerm = "",
+            [FromQuery] int page = 1,
+            [FromQuery] int pageSize = 10,
+            [FromQuery] string sortBy = "Name",
+            [FromQuery] bool sortDescending = false)
+        {
+            SearchParams searchParams = new SearchParams { SearchQuery = searchTerm, Page = page, ItemsPerPage = pageSize, SortBy = sortBy, SortDescending = sortDescending };
+            
+            var workIssues = await _workIssueService.SearchWorkIssuesByUserIdAsync(userId, searchParams);
+
+            return Ok(workIssues);
+        }
 
         [HttpPost]
         public async Task<ActionResult<int>> CreateIssue([FromBody] CreateIssueDTO createIssueDTO)
