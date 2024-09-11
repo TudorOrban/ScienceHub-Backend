@@ -1,4 +1,4 @@
-using sciencehub_backend_core.Features.Projects.DTO;
+using sciencehub_backend_core.Features.Projects.DTOs;
 using sciencehub_backend_core.Features.Projects.Models;
 using sciencehub_backend_core.Shared.Search;
 

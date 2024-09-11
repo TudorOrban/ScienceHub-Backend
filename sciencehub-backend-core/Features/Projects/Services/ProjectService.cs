@@ -1,6 +1,6 @@
 ﻿using sciencehub_backend_core.Data;
 using sciencehub_backend_core.Features.Projects.Models;
-using sciencehub_backend_core.Features.Projects.DTO;
+using sciencehub_backend_core.Features.Projects.DTOs;
 using sciencehub_backend_core.Shared.Validation;
 using sciencehub_backend_core.Features.Submissions.VersionControlSystem.Models;
 using sciencehub_backend_core.Shared.Sanitation;

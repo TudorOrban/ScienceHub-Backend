@@ -19,9 +19,9 @@ namespace sciencehub_backend_core.Features.Projects.Repositories
             IQueryable<Project> query = _context.Projects
                 .Where(p => p.ProjectUsers.Any(pu => pu.UserId == userId));
 
-            if (!string.IsNullOrWhiteSpace(searchParams.SearchQuery))
+            if (!string.IsNullOrWhiteSpace(searchParams.SearchTerm))
             {
-                query = query.Where(p => p.Name.Contains(searchParams.SearchQuery) || p.Title.Contains(searchParams.SearchQuery));
+                query = query.Where(p => p.Name.Contains(searchParams.SearchTerm) || p.Title.Contains(searchParams.SearchTerm));
             }
 
             query = ApplySorting(query, searchParams.SortBy, searchParams.SortDescending);

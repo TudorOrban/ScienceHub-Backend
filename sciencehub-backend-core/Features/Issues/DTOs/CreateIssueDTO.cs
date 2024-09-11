@@ -19,11 +19,11 @@ namespace sciencehub_backend_core.Features.Issues.DTOs
 
         public string? Description { get; set; }
 
+        public bool? IsPublic { get; set; }
+
         [Required(ErrorMessage = "At least one user is required.")]
         [MinLength(1, ErrorMessage = "At least one user is required.")]
         public List<string> Users { get; set; }
-
-        public bool Public { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {

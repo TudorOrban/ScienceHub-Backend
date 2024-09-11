@@ -5,7 +5,7 @@ namespace sciencehub_backend_core.Shared.Enums
 {
     public enum IssueStatus
     {
-        [PgName("Opened")]
+        [PgName("Open")]
         Opened,
 
         [PgName("Closed")]

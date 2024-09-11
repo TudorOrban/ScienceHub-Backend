@@ -35,11 +35,11 @@ namespace sciencehub_backend_core.Features.Issues.Repositories
                     .ThenInclude(iu => iu.User)
                 .Where(i => i.IssueUsers.Any(iu => iu.UserId == userId))
                 .Where(i => i.IssueType == issueType)
-                .Where(i => i.IsPublic);
+                .Where(i => i.IsPublic ?? false);
 
-            if (!string.IsNullOrEmpty(searchParams.SearchQuery))
+            if (!string.IsNullOrEmpty(searchParams.SearchTerm))
             {
-                query = query.Where(i => i.Title.Contains(searchParams.SearchQuery));
+                query = query.Where(i => i.Title.Contains(searchParams.SearchTerm));
             }
 
             query = ApplySorting(query, searchParams.SortBy, searchParams.SortDescending);

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace sciencehub_backend_core.Features.Projects.DTO
+namespace sciencehub_backend_core.Features.Projects.DTOs
 {
     public class CreateProjectDTO
     {

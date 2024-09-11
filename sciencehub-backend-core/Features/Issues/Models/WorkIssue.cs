@@ -30,7 +30,7 @@ namespace sciencehub_backend_core.Features.Issues.Models
         public IssueStatus? Status { get; set; }
 
         [Column("public")]
-        public bool Public { get; set; }
+        public bool? IsPublic { get; set; }
         
         public ICollection<WorkIssueUser> WorkIssueUsers { get; set; } = new List<WorkIssueUser>();
     }

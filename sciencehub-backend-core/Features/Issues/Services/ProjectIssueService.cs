@@ -87,7 +87,7 @@ namespace sciencehub_backend_core.Features.Issues.Services
                 ProjectId = projectId,
                 Title = _sanitizerService.Sanitize(createIssueDTO.Title),
                 Description = _sanitizerService.Sanitize(createIssueDTO.Description),
-                Public = createIssueDTO.Public,
+                Public = createIssueDTO.IsPublic ?? false,
             };
 
             await _projectIssueRepository.CreateProjectIssueAsync(newProjectIssue, createIssueDTO.Users);
@@ -101,7 +101,7 @@ namespace sciencehub_backend_core.Features.Issues.Services
 
             projectIssue.Title = _sanitizerService.Sanitize(updateIssueDTO.Title);
             projectIssue.Description = _sanitizerService.Sanitize(updateIssueDTO.Description);
-            projectIssue.Public = updateIssueDTO.Public;
+            projectIssue.Public = updateIssueDTO.IsPublic ?? false;
 
             await _projectIssueRepository.UpdateProjectIssueAsync(projectIssue);
             return projectIssue;

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using sciencehub_backend_core.Data;
 using sciencehub_backend_core.Features.Projects.Models;
-using sciencehub_backend_core.Features.Projects.DTO;
+using sciencehub_backend_core.Features.Projects.DTOs;
 using sciencehub_backend_core.Features.Projects.Services;
 using sciencehub_backend_core.Shared.Search;
 
@@ -35,7 +35,7 @@ namespace sciencehub_backend_core.Features.Projects.Controllers
             {
                 return BadRequest("Invalid User ID format");
             }
-            SearchParams searchParams = new SearchParams { SearchQuery = searchTerm, SortBy = sortBy, SortDescending = sortDescending, Page = page, ItemsPerPage = itemsPerPage };
+            SearchParams searchParams = new SearchParams { SearchTerm = searchTerm, SortBy = sortBy, SortDescending = sortDescending, Page = page, ItemsPerPage = itemsPerPage };
 
             var projects = await _projectService.GetProjectsByUserIdAsync(parsedUserId, searchParams);
 

@@ -32,9 +32,9 @@ namespace sciencehub_backend_core.Features.Reviews.Repositories
             var query = _context.ProjectReviews
                 .Where(pr => pr.ProjectId == projectId);
 
-            if (!string.IsNullOrEmpty(searchParams.SearchQuery))
+            if (!string.IsNullOrEmpty(searchParams.SearchTerm))
             {
-                query = query.Where(pr => pr.Title.Contains(searchParams.SearchQuery));
+                query = query.Where(pr => pr.Title.Contains(searchParams.SearchTerm));
             }
 
             query = ApplySorting(query, searchParams.SortBy, searchParams.SortDescending);

@@ -69,6 +69,8 @@ namespace sciencehub_backend_core.Core.Config
             builder.Services.AddScoped<ITextDiffManager, TextDiffManager>();
 
             // Management
+            builder.Services.AddScoped<IIssueRepository, IssueRepository>();
+            builder.Services.AddScoped<IIssueService, IssueService>();
             builder.Services.AddScoped<IProjectIssueRepository, ProjectIssueRepository>();
             builder.Services.AddScoped<IProjectIssueService, ProjectIssueService>();
             builder.Services.AddScoped<IWorkIssueRepository, WorkIssueRepository>();
@@ -107,6 +109,7 @@ namespace sciencehub_backend_core.Core.Config
                 dataSourceBuilder.MapEnum<IssueStatus>();
                 dataSourceBuilder.MapEnum<ReviewStatus>();
                 dataSourceBuilder.MapEnum<WorkType>();
+                dataSourceBuilder.MapEnum<IssueType>();
 
                 dataSourceBuilder.EnableDynamicJson();
 

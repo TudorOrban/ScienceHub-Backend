@@ -33,9 +33,9 @@ namespace sciencehub_backend_core.Features.Issues.Repositories
             var query = _context.WorkIssues
                 .Where(pr => pr.WorkId == workId && pr.WorkType == workType);
 
-            if (!string.IsNullOrEmpty(searchParams.SearchQuery))
+            if (!string.IsNullOrEmpty(searchParams.SearchTerm))
             {
-                query = query.Where(pr => pr.Title.Contains(searchParams.SearchQuery));
+                query = query.Where(pr => pr.Title.Contains(searchParams.SearchTerm));
             }
 
             query = ApplySorting(query, searchParams.SortBy, searchParams.SortDescending);
@@ -61,9 +61,9 @@ namespace sciencehub_backend_core.Features.Issues.Repositories
                     .ThenInclude(iu => iu.User)
                 .Where(pr => pr.WorkIssueUsers.Any(iu => iu.UserId == userId));
 
-            if (!string.IsNullOrEmpty(searchParams.SearchQuery))
+            if (!string.IsNullOrEmpty(searchParams.SearchTerm))
             {
-                query = query.Where(pr => pr.Title.Contains(searchParams.SearchQuery));
+                query = query.Where(pr => pr.Title.Contains(searchParams.SearchTerm));
             }
 
             query = ApplySorting(query, searchParams.SortBy, searchParams.SortDescending);

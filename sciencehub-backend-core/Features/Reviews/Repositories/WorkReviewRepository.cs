@@ -33,9 +33,9 @@ namespace sciencehub_backend_core.Features.Reviews.Repositories
             var query = _context.WorkReviews
                 .Where(pr => pr.WorkId == workId && pr.WorkType == workType);
 
-            if (!string.IsNullOrEmpty(searchParams.SearchQuery))
+            if (!string.IsNullOrEmpty(searchParams.SearchTerm))
             {
-                query = query.Where(pr => pr.Title.Contains(searchParams.SearchQuery));
+                query = query.Where(pr => pr.Title.Contains(searchParams.SearchTerm));
             }
 
             query = ApplySorting(query, searchParams.SortBy, searchParams.SortDescending);
@@ -60,9 +60,9 @@ namespace sciencehub_backend_core.Features.Reviews.Repositories
                 .Where(pru => pru.UserId == userId)
                 .Select(pru => pru.WorkReview);
 
-            if (!string.IsNullOrEmpty(searchParams.SearchQuery))
+            if (!string.IsNullOrEmpty(searchParams.SearchTerm))
             {
-                query = query.Where(pr => pr.Title.Contains(searchParams.SearchQuery));
+                query = query.Where(pr => pr.Title.Contains(searchParams.SearchTerm));
             }
 
             query = ApplySorting(query, searchParams.SortBy, searchParams.SortDescending);

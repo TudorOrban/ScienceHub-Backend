@@ -41,7 +41,7 @@ namespace sciencehub_backend_core.Features.Issues.Controllers
             [FromQuery] string sortBy = "Name",
             [FromQuery] bool sortDescending = false)
         {
-            SearchParams searchParams = new SearchParams { SearchQuery = searchTerm, Page = page, ItemsPerPage = pageSize, SortBy = sortBy, SortDescending = sortDescending };
+            SearchParams searchParams = new SearchParams { SearchTerm = searchTerm, Page = page, ItemsPerPage = pageSize, SortBy = sortBy, SortDescending = sortDescending };
             
             var projectIssues = await _projectIssueService.SearchProjectIssuesByProjectIdAsync(projectId, searchParams);
 
@@ -57,7 +57,7 @@ namespace sciencehub_backend_core.Features.Issues.Controllers
             [FromQuery] string sortBy = "Name",
             [FromQuery] bool sortDescending = false)
         {
-            SearchParams searchParams = new SearchParams { SearchQuery = searchTerm, Page = page, ItemsPerPage = pageSize, SortBy = sortBy, SortDescending = sortDescending };
+            SearchParams searchParams = new SearchParams { SearchTerm = searchTerm, Page = page, ItemsPerPage = pageSize, SortBy = sortBy, SortDescending = sortDescending };
             
             var projectIssues = await _projectIssueService.SearchProjectIssuesByUserIdAsync(userId, searchParams);
 

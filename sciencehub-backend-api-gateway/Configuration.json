@@ -50,6 +50,18 @@
             "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"]
         },
         {
+            "DownstreamPathTemplate": "/api/v1/issues/{everything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "sciencehub-backend-core-service",
+                    "Port": 8080
+                }
+            ],
+            "UpstreamPathTemplate": "/api/v1/issues/{everything}",
+            "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"]
+        },
+        {
             "DownstreamPathTemplate": "/api/v1/project-issues/{everything}",
             "DownstreamScheme": "http",
             "DownstreamHostAndPorts": [

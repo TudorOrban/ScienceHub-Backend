@@ -79,9 +79,9 @@ namespace sciencehub_backend_core.Features.Works.Repositories
                 .Where(w => w.WorkUsers.Any(wu => wu.UserId == userId) && w.WorkType == workType);
 
             // Apply search query filtering
-            if (!string.IsNullOrEmpty(searchParams.SearchQuery))
+            if (!string.IsNullOrEmpty(searchParams.SearchTerm))
             {
-                query = query.Where(w => w.Title.Contains(searchParams.SearchQuery));
+                query = query.Where(w => w.Title.Contains(searchParams.SearchTerm));
             }
 
             // Apply sorting

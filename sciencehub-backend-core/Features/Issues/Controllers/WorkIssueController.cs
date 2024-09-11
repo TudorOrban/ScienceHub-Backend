@@ -44,7 +44,7 @@ namespace sciencehub_backend_core.Features.Issues.Controllers
             [FromQuery] bool sortDescending = false)
         {
             WorkType workType = Enum.Parse<WorkType>(workTypeString);
-            SearchParams searchParams = new SearchParams { SearchQuery = searchTerm, Page = page, ItemsPerPage = pageSize, SortBy = sortBy, SortDescending = sortDescending };
+            SearchParams searchParams = new SearchParams { SearchTerm = searchTerm, Page = page, ItemsPerPage = pageSize, SortBy = sortBy, SortDescending = sortDescending };
             
             var workIssues = await _workIssueService.SearchWorkIssuesByWorkIdAsync(workId, workType, searchParams);
 
@@ -60,7 +60,7 @@ namespace sciencehub_backend_core.Features.Issues.Controllers
             [FromQuery] string sortBy = "Name",
             [FromQuery] bool sortDescending = false)
         {
-            SearchParams searchParams = new SearchParams { SearchQuery = searchTerm, Page = page, ItemsPerPage = pageSize, SortBy = sortBy, SortDescending = sortDescending };
+            SearchParams searchParams = new SearchParams { SearchTerm = searchTerm, Page = page, ItemsPerPage = pageSize, SortBy = sortBy, SortDescending = sortDescending };
             
             var workIssues = await _workIssueService.SearchWorkIssuesByUserIdAsync(userId, searchParams);
 

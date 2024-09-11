@@ -36,7 +36,7 @@ namespace sciencehub_backend_core.Features.Issues.Models
         public IssueStatus? Status { get; set; }
 
         [Column("is_public")]
-        public bool IsPublic { get; set; }
+        public bool? IsPublic { get; set; }
         
         [Column("total_upvotes")]
         public int? TotalUpvotes { get; set; }
