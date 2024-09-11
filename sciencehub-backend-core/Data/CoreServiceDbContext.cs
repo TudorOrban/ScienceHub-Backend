@@ -122,62 +122,20 @@ namespace sciencehub_backend_core.Data
                 .HasOne(iu => iu.User)
                 .WithMany(u => u.IssueUsers)
                 .HasForeignKey(iu => iu.UserId);
+                
+            modelBuilder.Entity<ReviewUser>()
+                .ToTable("review_users")
+                .HasKey(ru => new { ru.ReviewId, ru.UserId });
 
-            modelBuilder.Entity<ProjectIssueUser>()
-                .ToTable("project_issue_users")
-                .HasKey(piu => new { piu.ProjectIssueId, piu.UserId });
-
-            modelBuilder.Entity<ProjectIssueUser>()
-                .HasOne(piu => piu.ProjectIssue)
-                .WithMany(pi => pi.ProjectIssueUsers)
-                .HasForeignKey(piu => piu.ProjectIssueId);
-
-            modelBuilder.Entity<ProjectIssueUser>()
-                .HasOne(piu => piu.User)
-                .WithMany(u => u.ProjectIssueUsers)
-                .HasForeignKey(piu => piu.UserId);
-
-            modelBuilder.Entity<WorkIssueUser>()
-                .ToTable("work_issue_users")
-                .HasKey(wiu => new { wiu.WorkIssueId, wiu.UserId });
-
-            modelBuilder.Entity<WorkIssueUser>()
-                .HasOne(wiu => wiu.WorkIssue)
-                .WithMany(wi => wi.WorkIssueUsers)
-                .HasForeignKey(wiu => wiu.WorkIssueId);
-
-            modelBuilder.Entity<WorkIssueUser>()
-                .HasOne(wiu => wiu.User)
-                .WithMany(u => u.WorkIssueUsers)
-                .HasForeignKey(wiu => wiu.UserId);
-
-            modelBuilder.Entity<ProjectReviewUser>()
-                .ToTable("project_review_users")
-                .HasKey(pru => new { pru.ProjectReviewId, pru.UserId });
-
-            modelBuilder.Entity<ProjectReviewUser>()
-                .HasOne(pru => pru.ProjectReview)
-                .WithMany(pr => pr.ProjectReviewUsers)
-                .HasForeignKey(pru => pru.ProjectReviewId);
-
-            modelBuilder.Entity<ProjectReviewUser>()
-                .HasOne(pru => pru.User)
-                .WithMany(u => u.ProjectReviewUsers)
-                .HasForeignKey(pru => pru.UserId);
-
-            modelBuilder.Entity<WorkReviewUser>()
-                .ToTable("work_review_users")
-                .HasKey(wru => new { wru.WorkReviewId, wru.UserId });
-
-            modelBuilder.Entity<WorkReviewUser>()
-                .HasOne(wru => wru.WorkReview)
-                .WithMany(wr => wr.WorkReviewUsers)
-                .HasForeignKey(wru => wru.WorkReviewId);
-
-            modelBuilder.Entity<WorkReviewUser>()
-                .HasOne(wru => wru.User)
-                .WithMany(u => u.WorkReviewUsers)
-                .HasForeignKey(wru => wru.UserId);
+            modelBuilder.Entity<ReviewUser>()
+                .HasOne(ru => ru.Review)
+                .WithMany(r => r.ReviewUsers)
+                .HasForeignKey(ru => ru.ReviewId);
+            
+            modelBuilder.Entity<ReviewUser>()
+                .HasOne(ru => ru.User)
+                .WithMany(u => u.ReviewUsers)
+                .HasForeignKey(ru => ru.UserId);
         }
 
         private void ConfigureEnums(ModelBuilder modelBuilder)
@@ -214,15 +172,9 @@ namespace sciencehub_backend_core.Data
 
         // Rest of management
         public DbSet<Issue> Issues { get; set; }
-        public DbSet<ProjectIssue> ProjectIssues { get; set; }
-        public DbSet<WorkIssue> WorkIssues { get; set; }
         public DbSet<IssueUser> IssueUsers { get; set; }
-        public DbSet<ProjectIssueUser> ProjectIssueUsers { get; set; }
-        public DbSet<WorkIssueUser> WorkIssueUsers { get; set; }
-        public DbSet<ProjectReview> ProjectReviews { get; set; }
-        public DbSet<WorkReview> WorkReviews { get; set; }
-        public DbSet<ProjectReviewUser> ProjectReviewUsers { get; set; }
-        public DbSet<WorkReviewUser> WorkReviewUsers { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<ReviewUser> ReviewUsers { get; set; }
 
     }
 }

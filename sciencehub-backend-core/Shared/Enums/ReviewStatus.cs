@@ -5,7 +5,7 @@ namespace sciencehub_backend_core.Shared.Enums
 {
     public enum ReviewStatus
     {
-        [PgName("In progress")]
+        [PgName("InProgress")]
         InProgress,
 
         [PgName("Submitted")]

@@ -156,3 +156,46 @@ INSERT INTO public.issue_users (user_id, issue_id, role)
 VALUES (2, 1, 'Contributor');
 INSERT INTO public.issue_users (user_id, issue_id, role)
 VALUES (1, 2, 'Main Author');
+
+
+CREATE TYPE review_type AS ENUM ('ProjectReview', 'WorkReview');
+CREATE TYPE review_status AS ENUM ('InProgress', 'Submitted');
+
+CREATE TABLE public.reviews (
+	id SERIAL PRIMARY KEY,
+	review_type review_type,
+	project_id INT,
+	work_id INT,
+	work_type work_type,
+	name VARCHAR(50) UNIQUE NOT NULL,
+	title VARCHAR(250) NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+	description TEXT,
+	is_public BOOLEAN DEFAULT FALSE,
+	status review_status,
+	total_upvotes INT,
+	FOREIGN KEY (project_id) REFERENCES public.projects (id),
+	FOREIGN KEY (work_id) REFERENCES public.works (id)
+);
+
+INSERT INTO public.reviews (review_type, project_id, name, title, description, is_public, status)
+VALUES ('ProjectReview', 1, 'Alphafold introduction', 'Alphafold - New model for protein folding', 'A new model...', TRUE, 'InProgress');
+INSERT INTO public.reviews (review_type, work_id, work_type, name, title, description, is_public, status)
+VALUES ('WorkReview', 1, 'Paper', 'An experiment for Alphafold', 'An experiment to determine new materials', 'A new model...', TRUE, 'Submitted');
+
+CREATE TABLE public.review_users (
+    user_id INT NOT NULL,
+    review_id INT NOT NULL,
+    role VARCHAR(50),
+    PRIMARY KEY (user_id, review_id),
+    FOREIGN KEY (user_id) REFERENCES public.users (id),
+    FOREIGN KEY (review_id) REFERENCES public.reviews (id)
+);
+
+INSERT INTO public.review_users (user_id, review_id, role)
+VALUES (1, 1, 'Main Author');
+INSERT INTO public.review_users (user_id, review_id, role)
+VALUES (2, 1, 'Contributor');
+INSERT INTO public.review_users (user_id, review_id, role)
+VALUES (1, 2, 'Main Author');

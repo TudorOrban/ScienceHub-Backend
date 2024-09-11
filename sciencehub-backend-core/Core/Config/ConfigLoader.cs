@@ -71,14 +71,8 @@ namespace sciencehub_backend_core.Core.Config
             // Management
             builder.Services.AddScoped<IIssueRepository, IssueRepository>();
             builder.Services.AddScoped<IIssueService, IssueService>();
-            builder.Services.AddScoped<IProjectIssueRepository, ProjectIssueRepository>();
-            builder.Services.AddScoped<IProjectIssueService, ProjectIssueService>();
-            builder.Services.AddScoped<IWorkIssueRepository, WorkIssueRepository>();
-            builder.Services.AddScoped<IWorkIssueService, WorkIssueService>();
-            builder.Services.AddScoped<IProjectReviewRepository, ProjectReviewRepository>();
-            builder.Services.AddScoped<IProjectReviewService, ProjectReviewService>();
-            builder.Services.AddScoped<IWorkReviewRepository, WorkReviewRepository>();
-            builder.Services.AddScoped<IWorkReviewService, WorkReviewService>();
+            builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
+            builder.Services.AddScoped<IReviewService, ReviewService>();
 
             // Reusable
             builder.Services.AddTransient<ISanitizerService, SanitizerService>();
@@ -110,6 +104,7 @@ namespace sciencehub_backend_core.Core.Config
                 dataSourceBuilder.MapEnum<ReviewStatus>();
                 dataSourceBuilder.MapEnum<WorkType>();
                 dataSourceBuilder.MapEnum<IssueType>();
+                dataSourceBuilder.MapEnum<ReviewType>();
 
                 dataSourceBuilder.EnableDynamicJson();
 

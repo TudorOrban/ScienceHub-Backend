@@ -3,17 +3,17 @@ using sciencehub_backend_core.Core.Users.Models;
 
 namespace sciencehub_backend_core.Features.Reviews.Models
 {
-    public class WorkReviewUser
+    public class ReviewUser
     {
-        [ForeignKey("WorkReview")]
-        [Column("work_review_id")]
-        public int WorkReviewId { get; set; }
+        [ForeignKey("Review")]
+        [Column("review_id")]
+        public int ReviewId { get; set; }
 
         [ForeignKey("User")]
         [Column("user_id")]
         public int UserId { get; set; }
 
-        public WorkReview WorkReview { get; set; }
+        public Review Review { get; set; }
         public User User { get; set; }
     }
 }

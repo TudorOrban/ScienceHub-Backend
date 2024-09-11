@@ -4,11 +4,11 @@ namespace sciencehub_backend_core.Features.Reviews.DTOs
 {
     public class UpdateReviewDTO : IValidatableObject
     {
-        [Required(ErrorMessage = "Review Id is required.")]
+        [Required(ErrorMessage = "ID is required.")]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Review Type is required.")]
-        public string ReviewObjectType { get; set; }
+        public string ReviewObjectType { get; set; } = string.Empty;
 
         public int? ProjectId { get; set; }
 
@@ -26,7 +26,7 @@ namespace sciencehub_backend_core.Features.Reviews.DTOs
         [MinLength(1, ErrorMessage = "At least one user is required.")]
         public List<string> Users { get; set; }
 
-        public bool Public { get; set; }
+        public bool? IsPublic { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
