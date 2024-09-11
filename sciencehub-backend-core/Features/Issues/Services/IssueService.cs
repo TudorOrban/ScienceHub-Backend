@@ -42,6 +42,7 @@ namespace sciencehub_backend_core.Features.Issues.Services
             {
                 Id = r.Id,
                 Title = r.Title,
+                Name = r.Name,
                 Description = r.Description,                    
                 CreatedAt = r.CreatedAt,
                 Users = r.IssueUsers.Select(u => new UserSmallDTO
@@ -65,6 +66,7 @@ namespace sciencehub_backend_core.Features.Issues.Services
             {
                 Id = createIssueDTO.WorkId.Value,
                 Title = _sanitizerService.Sanitize(createIssueDTO.Title),
+                Name = _sanitizerService.Sanitize(createIssueDTO.Name),
                 Description = _sanitizerService.Sanitize(createIssueDTO.Description),
                 IsPublic = createIssueDTO.IsPublic,
             };
@@ -79,6 +81,7 @@ namespace sciencehub_backend_core.Features.Issues.Services
             var Issue = await _IssueRepository.FindIssueByIdAsync(updateIssueDTO.Id);
 
             Issue.Title = _sanitizerService.Sanitize(updateIssueDTO.Title);
+            Issue.Name = _sanitizerService.Sanitize(updateIssueDTO.Name);
             Issue.Description = _sanitizerService.Sanitize(updateIssueDTO.Description);
             Issue.IsPublic = updateIssueDTO.IsPublic;
 

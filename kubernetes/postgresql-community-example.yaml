@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgresql-community
+spec:
+  selector:
+    matchLabels:
+      app: postgresql-community
+  template:
+    metadata:
+      labels:
+        app: postgresql-community
+    spec:
+      containers:
+      - name: postgresql-community
+        image: postgres:latest
+        env:
+        - name: POSTGRES_DB
+          value: "sciencehub_database"
+        - name: POSTGRES_USER
+          value: "postgres"
+        - name: POSTGRES_PASSWORD
+          value: "example"
+        ports:
+        - containerPort: 5433
+        volumeMounts:
+        - mountPath: /docker-entrypoint-initdb.d
+          name: db-dump
+      volumes:
+      - name: db-dump
+        configMap:
+          name: postgresql-community-initdb
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgresql-community-service
+spec:
+  selector:
+    app: postgresql-community
+  ports:
+    - protocol: TCP
+      port: 5433
+      targetPort: 5433

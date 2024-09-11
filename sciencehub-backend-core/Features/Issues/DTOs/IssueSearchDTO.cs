@@ -14,6 +14,7 @@ namespace sciencehub_backend_core.Features.Issues.DTOs
         public int? WorkId { get; set; }
         public WorkType? WorkType { get; set; }
         public string Title { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
         public string? Description { get; set; }
         public DateTime? CreatedAt { get; set; }
         public IssueStatus? Status { get; set; }  

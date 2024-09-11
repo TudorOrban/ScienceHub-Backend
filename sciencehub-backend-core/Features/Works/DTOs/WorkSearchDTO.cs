@@ -12,6 +12,7 @@ namespace sciencehub_backend_core.Features.Works.DTOs
         public DateTime UpdatedAt { get; set; }
         public WorkType WorkType { get; set; }
         public string Title { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
         public string? Description { get; set; }
         public float? ResearchScore { get; set; }
         public int? CitationsCount { get; set; }

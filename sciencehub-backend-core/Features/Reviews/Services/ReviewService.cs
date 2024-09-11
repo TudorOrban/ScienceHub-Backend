@@ -65,6 +65,7 @@ namespace sciencehub_backend_core.Features.Reviews.Services
             {
                 Id = createReviewDTO.WorkId.Value,
                 Title = _sanitizerService.Sanitize(createReviewDTO.Title),
+                Name = _sanitizerService.Sanitize(createReviewDTO.Name),
                 Description = _sanitizerService.Sanitize(createReviewDTO.Description),
                 IsPublic = createReviewDTO.IsPublic,
             };
@@ -79,6 +80,7 @@ namespace sciencehub_backend_core.Features.Reviews.Services
             var Review = await _ReviewRepository.FindReviewByIdAsync(updateReviewDTO.Id);
 
             Review.Title = _sanitizerService.Sanitize(updateReviewDTO.Title);
+            Review.Name = _sanitizerService.Sanitize(updateReviewDTO.Name);
             Review.Description = _sanitizerService.Sanitize(updateReviewDTO.Description);
             Review.IsPublic = updateReviewDTO.IsPublic;
 

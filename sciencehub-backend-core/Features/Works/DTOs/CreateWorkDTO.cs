@@ -14,6 +14,10 @@ namespace sciencehub_backend_core.Features.Works.DTOs
         [StringLength(100, ErrorMessage = "Title must be less than 100 characters long.")]
         public string Title { get; set; } = string.Empty;
 
+        [Required(ErrorMessage = "Name is required.")]
+        [StringLength(50, ErrorMessage = "Name must be less than 50 characters long.")]
+        public string Name { get; set; } = string.Empty;
+
         public string? Description { get; set; }
 
         [Required(ErrorMessage = "At least one user is required.")]

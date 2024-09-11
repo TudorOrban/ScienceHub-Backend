@@ -89,6 +89,7 @@ namespace sciencehub_backend_core.Features.Works.Services
             {
                 Id = work.Id,
                 Title = work.Title,
+                Name = work.Name,
                 Description = work.Description,
                 WorkType = work.WorkType,
                 CreatedAt = work.CreatedAt,

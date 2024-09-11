@@ -26,6 +26,9 @@ namespace sciencehub_backend_core.Features.Reviews.Models
         [Column("title")]
         public string Title { get; set; } = string.Empty;
 
+        [Column("name")]
+        public string Name { get; set; } = string.Empty;
+
         [Column("description")]
         public string? Description  { get; set; }
 
