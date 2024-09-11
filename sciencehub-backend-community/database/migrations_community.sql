@@ -25,8 +25,31 @@ CREATE TABLE public.discussions (
 	total_upvotes INT,
 	total_shares INT,
 	total_views INT,
-	FOREIGN KEY (user_id) REFERENCES public.users (id)
 );
 
 INSERT INTO public.discussions (user_id, title, name, content, is_public, total_upvotes, total_shares, total_views)
 VALUES (1, 'About Alphafold', 'Alph#12', 'I am not sure how much Alphafold will impact the world of protein folding', FALSE, 123, 412, 4295);
+
+CREATE TABLE public.comments (
+	id SERIAL PRIMARY KEY,
+	user_id INT NOT NULL,
+	discussion_id INT NOT NULL,
+	parent_comment_id INT,
+	title VARCHAR(250),
+	content TEXT,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+	is_public BOOLEAN DEFAULT FALSE,
+	total_upvotes INT,
+	total_shares INT,
+	total_views INT,
+	total_comments INT,
+	FOREIGN KEY (discussion_id) REFERENCES public.discussions (id),
+	FOREIGN KEY (parent_comment_id) REFERENCES public.comments (id)
+);
+
+INSERT INTO public.comments (user_id, discussion_id, title, content, is_public, total_upvotes, total_shares, total_views, total_comments)
+VALUES (1, 1, 'Alphafold Discussion', 'A discussion about the latest developments in protein folding...', TRUE, 12, 14, 351, 9);
+
+INSERT INTO public.comments (user_id, discussion_id, parent_comment_id, title, content, is_public, total_upvotes, total_shares, total_views, total_comments)
+VALUES (1, 1, 1, 'Alphafold Comment', 'A ...', TRUE, 2, 1, 49, 2);

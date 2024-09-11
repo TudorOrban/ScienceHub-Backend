@@ -15,6 +15,7 @@ namespace sciencehub_backend_community.Core.Config
     {
         public static WebApplication ConfigureApplication(WebApplicationBuilder builder, bool isTest = false)
         {
+            ConfigureHttpClients(builder);
             ConfigureServices(builder);
             ConfigureDatabase(builder, isTest);
             ConfigureCors(builder);
@@ -33,12 +34,14 @@ namespace sciencehub_backend_community.Core.Config
             builder.Services.AddScoped<IUserService, UserService>();
 
             
-            // Configure ER to avoid circular references
-            builder.Services.AddControllers().AddJsonOptions(options =>
-                options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
-
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            // Configure Json Options
+            builder.Services.AddControllers().AddJsonOptions(options => {
+                options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+                options.JsonSerializerOptions.NumberHandling = 
+                JsonNumberHandling.AllowReadingFromString |
+                JsonNumberHandling.WriteAsString;
+                options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+            });
         }
 
         public static void ConfigureHttpClients(WebApplicationBuilder builder)

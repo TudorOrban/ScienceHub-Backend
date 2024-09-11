@@ -40,7 +40,7 @@ namespace sciencehub_backend_community.Features.Discussions.Services
                 Content = d.Content,
                 CreatedAt = d.CreatedAt,
                 UserId = d.UserId,
-                User = users.Find(u => u.Id == d.UserId.ToString()),
+                User = users.Find(u => u.Id == d.UserId),
             }).ToList();
         }
     }
