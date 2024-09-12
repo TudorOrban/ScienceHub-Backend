@@ -1,6 +1,9 @@
+using sciencehub_backend_community.Core.Users.Models;
 using sciencehub_backend_community.Core.Users.Services;
 using sciencehub_backend_community.Features.Discussions.DTOs;
+using sciencehub_backend_community.Features.Discussions.Models;
 using sciencehub_backend_community.Features.Discussions.Repositories;
+using sciencehub_backend_core.Shared.Search;
 
 namespace sciencehub_backend_community.Features.Discussions.Services
 {
@@ -21,26 +24,37 @@ namespace sciencehub_backend_community.Features.Discussions.Services
             _logger = logger;
         }
 
-        public async Task<List<DiscussionSearchDTO>> GetDiscussionsByUserId(int userId) {
-            var discussions = await _discussionRepository.GetDiscussionsByUserId(userId);
-            
-            var userIds = discussions.Select(d => d.UserId).Distinct().ToList();
+        public async Task<PaginatedResults<DiscussionSearchDTO>> SearchDiscussionsByUserIdAsync(int userId, SearchParams searchParams)
+        {
+            var results = await _discussionRepository.SearchDiscussionsByUserIdAsync(userId, searchParams);
 
-            var users = await _userService.GetUsersByIdsAsync(userIds);
-            
-            if (users == null || users.Count == 0) {
-                _logger.LogInformation($"No users found for discussions");
-            }
+            // Get user from Core microservice
+            var users = await _userService.GetUsersByIdsAsync([userId]);
+            var userDTO = users.FirstOrDefault()!;
 
-            return discussions.Select(d => new DiscussionSearchDTO
+            return new PaginatedResults<DiscussionSearchDTO>
             {
-                Id = d.Id,
-                Title = d.Title,
-                Content = d.Content,
-                CreatedAt = d.CreatedAt,
-                UserId = d.UserId,
-                User = (users ?? []).Find(u => u.Id == d.UserId),
-            }).ToList();
+                Results = results.Results.Select(discussion => mapDiscussionToSearchDTO(discussion, userDTO)).ToList(),
+                TotalCount = results.TotalCount,
+            };
+        }
+
+        private DiscussionSearchDTO mapDiscussionToSearchDTO(Discussion discussion, UserSmallDTO userDTO)
+        {
+            return new DiscussionSearchDTO
+            {
+                Id = discussion.Id,
+                Title = discussion.Title,
+                Content = discussion.Content,
+                CreatedAt = discussion.CreatedAt,
+                UpdatedAt = discussion.UpdatedAt,
+                UserId = discussion.UserId,
+                TotalShares = discussion.TotalShares,
+                TotalUpvotes = discussion.TotalUpvotes,
+                TotalViews = discussion.TotalViews,
+                IsPublic = discussion.IsPublic,
+                User = userDTO
+            };
         }
     }
 }

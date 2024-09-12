@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using sciencehub_backend_community.Features.Discussions.DTOs;
 using sciencehub_backend_community.Features.Discussions.Services;
+using sciencehub_backend_core.Shared.Search;
 
 namespace sciencehub_backend_community.Features.Discussions.Controllers
 {
@@ -15,10 +16,20 @@ namespace sciencehub_backend_community.Features.Discussions.Controllers
             _discussionService = discussionService;
         }
 
-        [HttpGet("user/{userId}")]
-        public async Task<ActionResult<List<DiscussionSearchDTO>>> GetDiscussionsByUserId(int userId)
+        [HttpGet("user/{userId}/search")]
+        public async Task<ActionResult<PaginatedResults<DiscussionSearchDTO>>> SearchDiscussionsById(
+            int userId,
+            [FromQuery] string searchTerm = "",
+            [FromQuery] int page = 1,
+            [FromQuery] int itemsPerPage = 10,
+            [FromQuery] string sortBy = "createdAt",
+            [FromQuery] bool sortDescending = false)
         {
-            return await _discussionService.GetDiscussionsByUserId(userId);
+            SearchParams searchParams = new SearchParams { SearchTerm = searchTerm, Page = page, ItemsPerPage = itemsPerPage, SortBy = sortBy, SortDescending = sortDescending };
+            
+            var discussions = await _discussionService.SearchDiscussionsByUserIdAsync(userId, searchParams);
+
+            return Ok(discussions);
         }
     }
 }

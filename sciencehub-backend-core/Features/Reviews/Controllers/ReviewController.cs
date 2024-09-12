@@ -32,7 +32,7 @@ namespace sciencehub_backend_core.Features.Reviews.Controllers
             [FromQuery] string searchTerm = "",
             [FromQuery] int page = 1,
             [FromQuery] int itemsPerPage = 10,
-            [FromQuery] string sortBy = "Name",
+            [FromQuery] string sortBy = "createdAt",
             [FromQuery] bool sortDescending = false)
         {
             ReviewType reviewType = Enum.Parse<ReviewType>(reviewTypeString);

@@ -32,7 +32,7 @@ namespace sciencehub_backend_core.Features.Issues.Controllers
             [FromQuery] string searchTerm = "",
             [FromQuery] int page = 1,
             [FromQuery] int itemsPerPage = 10,
-            [FromQuery] string sortBy = "Name",
+            [FromQuery] string sortBy = "createdAt",
             [FromQuery] bool sortDescending = false)
         {
             IssueType issueType = Enum.Parse<IssueType>(issueTypeString);

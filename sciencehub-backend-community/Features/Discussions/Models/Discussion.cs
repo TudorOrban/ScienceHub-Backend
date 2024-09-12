@@ -38,6 +38,9 @@ namespace sciencehub_backend_community.Features.Discussions.Models
         [Column("total_views")]
         public int? TotalViews { get; set; }
 
+        [Column("is_public")]
+        public bool? IsPublic { get; set; }
+
         [NotMapped] 
         public List<Comment>? DiscussionComments { get; set; }
     }

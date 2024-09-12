@@ -26,7 +26,7 @@ namespace sciencehub_backend_core.Features.Projects.Controllers
         public async Task<ActionResult<PaginatedResults<ProjectSearchDTO>>> GetProjects(
             string userId,
             [FromQuery] string searchTerm = "",
-            [FromQuery] string sortBy = "Name",
+            [FromQuery] string sortBy = "createdAt",
             [FromQuery] bool sortDescending = false,
             [FromQuery] int page = 1,
             [FromQuery] int itemsPerPage = 10)
