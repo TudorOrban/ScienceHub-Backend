@@ -30,7 +30,6 @@ namespace sciencehub_backend_community.Features.Discussions.Services
             
             if (users == null || users.Count == 0) {
                 _logger.LogInformation($"No users found for discussions");
-                return new List<DiscussionSearchDTO>();
             }
 
             return discussions.Select(d => new DiscussionSearchDTO
@@ -40,7 +39,7 @@ namespace sciencehub_backend_community.Features.Discussions.Services
                 Content = d.Content,
                 CreatedAt = d.CreatedAt,
                 UserId = d.UserId,
-                User = users.Find(u => u.Id == d.UserId),
+                User = (users ?? []).Find(u => u.Id == d.UserId),
             }).ToList();
         }
     }
