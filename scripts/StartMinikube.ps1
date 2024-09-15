@@ -1,7 +1,7 @@
 param (
-    [string]$buildCore = "false",
-    [string]$buildCommunity = "false",
-    [string]$buildApiGateway = "false"
+    [string]$buildCore = "true",
+    [string]$buildCommunity = "true",
+    [string]$buildApiGateway = "true"
 )
 
 Push-Location -Path ".."

@@ -3,7 +3,7 @@ using sciencehub_backend_core.Features.Projects.Models;
 using sciencehub_backend_core.Features.Reviews.Models;
 using sciencehub_backend_core.Features.Submissions.Models;
 using sciencehub_backend_core.Features.Works.Models;
-
+using sciencehub_backend_core.Shared.Serialization;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -51,6 +51,25 @@ namespace sciencehub_backend_core.Core.Users.Models
 
         [Column("total_upvotes")]
         public int? TotalUpvotes { get; set; }
+
+        private CustomJsonSerializer _serializer = new CustomJsonSerializer();
+
+        // Custom (de)serialization and caching of jsonb columns
+        [Column("user_details", TypeName = "jsonb")]
+        public string? UserDetailsJson { get; set; } = "{}";
+
+        private UserDetails? _cachedUserDetails;
+
+        [NotMapped]
+        public UserDetails UserDetails
+        {
+            get => _cachedUserDetails ??= _serializer.DeserializeFromJson<UserDetails>(UserDetailsJson ?? "{}");
+            set
+            {
+                _cachedUserDetails = value;
+                UserDetailsJson = _serializer.SerializeToJson(value);
+            }
+        }
 
         public ICollection<ProjectUser> ProjectUsers { get; set; } = new List<ProjectUser>();
         public ICollection<WorkUser> WorkUsers { get; set; } = new List<WorkUser>();

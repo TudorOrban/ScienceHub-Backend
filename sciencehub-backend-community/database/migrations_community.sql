@@ -53,3 +53,6 @@ VALUES (1, 1, 'Alphafold Discussion', 'A discussion about the latest development
 
 INSERT INTO public.comments (user_id, discussion_id, parent_comment_id, title, content, is_public, total_upvotes, total_shares, total_views, total_comments)
 VALUES (1, 1, 1, 'Alphafold Comment', 'A ...', TRUE, 2, 1, 49, 2);
+
+
+SELECT * FROM discussions;
