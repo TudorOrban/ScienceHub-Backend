@@ -20,7 +20,7 @@ namespace sciencehub_backend_core.Core.Users.Services
 
         public async Task<PaginatedResults<UserSmallDTO>> searchUsersByUsernameAsync(SearchParams searchParams) {
             var query = _context.Users
-                .Where(i => !i.IsProfilePublic ?? false); // Change ! later
+                .AsQueryable();
 
             if (!string.IsNullOrEmpty(searchParams.SearchTerm))
             {
