@@ -19,9 +19,9 @@ namespace sciencehub_backend_core.Features.Works.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Work>> GetWork(int id)
+        public async Task<ActionResult<WorkDetailsDTO>> GetWork(int id)
         {
-            var work = await _workService.GetWorkAsync(id);
+            var work = await _workService.GetWorkDetailsAsync(id);
             return Ok(work);
         }
 

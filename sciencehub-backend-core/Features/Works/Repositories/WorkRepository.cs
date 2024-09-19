@@ -18,7 +18,11 @@ namespace sciencehub_backend_core.Features.Works.Repositories
 
         public async Task<Work> GetWorkAsync(int workId)
         {
-            return await _context.Works.FindAsync(workId)
+            return await _context.Works
+                .Where(w => w.Id == workId)
+                .Include(w => w.WorkUsers)
+                    .ThenInclude(w => w.User)
+                .SingleOrDefaultAsync()
                 ?? throw new ResourceNotFoundException($"Work", workId.ToString());
         }
 

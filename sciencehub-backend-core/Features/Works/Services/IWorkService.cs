@@ -7,7 +7,7 @@ namespace sciencehub_backend_core.Features.Works.Services
 {
     public interface IWorkService
     {
-        Task<Work> GetWorkAsync(int workId);
+        Task<WorkDetailsDTO> GetWorkDetailsAsync(int workId);
         Task<IEnumerable<WorkSearchDTO>> GetWorksByUserIdAsync(int userId);
         Task<IEnumerable<WorkSearchDTO>> GetWorksByProjectIdAsync(int projectId);
         Task<IEnumerable<WorkSearchDTO>> GetWorksByTypeAndUserIdAsync(WorkType workType, int userId);

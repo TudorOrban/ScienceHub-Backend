@@ -17,9 +17,11 @@ namespace sciencehub_backend_core.Features.Works.Services
         }
 
         // Read
-        public async Task<Work> GetWorkAsync(int workId)
+        public async Task<WorkDetailsDTO> GetWorkDetailsAsync(int workId)
         {
-            return await _workRepository.GetWorkAsync(workId);
+            var work = await _workRepository.GetWorkAsync(workId);
+
+            return mapWorkToWorkDetailsDTO(work);
         }
 
         public async Task<IEnumerable<WorkSearchDTO>> GetWorksByUserIdAsync(int userId)
@@ -83,9 +85,34 @@ namespace sciencehub_backend_core.Features.Works.Services
             await _workRepository.DeleteWorkAsync(workId);
         }
 
+        // Mappers
         private WorkSearchDTO mapWorkToWorkSearchDTO(Work work)
         {
             return new WorkSearchDTO
+            {
+                Id = work.Id,
+                Title = work.Title,
+                Name = work.Name,
+                Description = work.Description,
+                WorkType = work.WorkType,
+                CreatedAt = work.CreatedAt,
+                UpdatedAt = work.UpdatedAt,
+                ResearchScore = work.ResearchScore,
+                CitationsCount = work.TotalCitations,
+                IsPublic = work.IsPublic,
+                CurrentWorkVersionId = work.CurrentWorkVersionId,
+                Users = work.WorkUsers.Select(wu => new UserSmallDTO
+                {
+                    Id = wu.UserId,
+                    Username = wu.User.Username,
+                    FullName = wu.User.FullName
+                }).ToList()
+            };
+        }
+
+        private WorkDetailsDTO mapWorkToWorkDetailsDTO(Work work)
+        {
+            return new WorkDetailsDTO
             {
                 Id = work.Id,
                 Title = work.Title,
