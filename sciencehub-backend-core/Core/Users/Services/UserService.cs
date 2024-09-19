@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using sciencehub_backend_core.Core.Users.DTOs;
 using sciencehub_backend_core.Exceptions.Errors;
 using sciencehub_backend_core.Core.Users.Models;
+using sciencehub_backend_core.Shared.Search;
 
 namespace sciencehub_backend_core.Core.Users.Services
 {
@@ -15,6 +16,47 @@ namespace sciencehub_backend_core.Core.Users.Services
         {
             _context = context;
             _logger = logger;
+        }
+
+        public async Task<PaginatedResults<UserSmallDTO>> searchUsersByUsernameAsync(SearchParams searchParams) {
+            var query = _context.Users
+                .Where(i => !i.IsProfilePublic ?? false); // Change ! later
+
+            if (!string.IsNullOrEmpty(searchParams.SearchTerm))
+            {
+                query = query.Where(i => i.Username.Contains(searchParams.SearchTerm));
+            }
+
+            query = ApplySorting(query, searchParams.SortBy, searchParams.SortDescending);
+
+            var totalItemCount = await query.CountAsync();
+
+            var users = await query
+                .Skip(((searchParams.Page ?? 1) - 1) * (searchParams.ItemsPerPage ?? 10))
+                .Take(searchParams.ItemsPerPage ?? 10)
+                .ToListAsync();
+
+            return new PaginatedResults<UserSmallDTO>
+            {
+                Results = users.Select(u => mapUserToUserSmallDTO(u)).ToList(),
+                TotalCount = totalItemCount
+            };
+        }
+
+        private IQueryable<User> ApplySorting(IQueryable<User> query, string? sortBy, bool descending)
+        {
+            switch (sortBy)
+            {
+                case "username":
+                    query = descending ? query.OrderByDescending(p => p.Username) : query.OrderBy(p => p.Username);
+                    break;
+                case "createdAt":
+                    query = descending ? query.OrderByDescending(p => p.CreatedAt) : query.OrderBy(p => p.CreatedAt);
+                    break;
+                default:
+                    throw new ArgumentException("Invalid sort field", nameof(sortBy));
+            }
+            return query;
         }
 
         public async Task<UserSmallDTO> GetUserSmallByIdAsync(int id)

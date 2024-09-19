@@ -2,6 +2,7 @@ using sciencehub_backend_core.Core.Users.Services;
 
 using Microsoft.AspNetCore.Mvc;
 using sciencehub_backend_core.Core.Users.DTOs;
+using sciencehub_backend_core.Shared.Search;
 
 namespace sciencehub_backend_core.Core.Users.Controllers
 {
@@ -14,6 +15,19 @@ namespace sciencehub_backend_core.Core.Users.Controllers
         public UserController(IUserService userService)
         {
             _userService = userService;
+        }
+
+        [HttpGet("search/username")]
+        public async Task<ActionResult<PaginatedResults<UserSmallDTO>>> searchUsersByUsernameAsync(
+            [FromQuery] string searchTerm = "",
+            [FromQuery] string sortBy = "createdAt",
+            [FromQuery] bool sortDescending = false,
+            [FromQuery] int page = 1,
+            [FromQuery] int itemsPerPage = 10
+        )
+        {
+            SearchParams searchParams = new SearchParams { SearchTerm = searchTerm, SortBy = sortBy, SortDescending = sortDescending, Page = page, ItemsPerPage = itemsPerPage };
+            return await _userService.searchUsersByUsernameAsync(searchParams);
         }
 
         [HttpGet("{id}/small")]

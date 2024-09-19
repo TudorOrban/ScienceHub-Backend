@@ -37,6 +37,9 @@ namespace sciencehub_backend_core.Core.Users.Models
         [Column("avatar_url")]
         public string? AvatarUrl { get; set; }
 
+        [Column("is_profile_public")]
+        public bool? IsProfilePublic { get; set; }
+
         [Column("bio")]
         public string? Bio { get; set; }
 
