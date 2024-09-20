@@ -75,24 +75,27 @@ namespace sciencehub_backend_core.Features.Works.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Work>> CreateWork([FromBody] CreateWorkDTO createWorkDTO)
+        public async Task<ActionResult<WorkDetailsDTO>> CreateWork([FromBody] CreateWorkDTO createWorkDTO)
         {
             var work = await _workService.CreateWorkAsync(createWorkDTO);
-            return CreatedAtRoute("", new { id = work.Id }, work);
+            
+            return Ok(work);
         }
 
         [HttpPut]
-        public async Task<ActionResult<Work>> UpdateWork([FromBody] UpdateWorkDTO updateWorkDTO)
+        public async Task<ActionResult<WorkDetailsDTO>> UpdateWork([FromBody] UpdateWorkDTO updateWorkDTO)
         {
             var work = await _workService.UpdateWorkAsync(updateWorkDTO);
+
             return Ok(work);
         }
 
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteWork(int id)
         {
-            await _workService.DeleteWorkAsync(id);
-            return NoContent();
+            var deletedId = await _workService.DeleteWorkAsync(id);
+            
+            return Ok(deletedId);
         }
     }
 }

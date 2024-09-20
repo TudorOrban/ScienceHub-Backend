@@ -64,25 +64,28 @@ namespace sciencehub_backend_core.Features.Works.Services
         }
 
         // Write
-        public async Task<Work> CreateWorkAsync(CreateWorkDTO workDTO)
+        public async Task<WorkDetailsDTO> CreateWorkAsync(CreateWorkDTO workDTO)
         {
             var work = mapCreateWorkDTOToWork(workDTO);
 
-            return await _workRepository.CreateWorkAsync(work);
+            return await _workRepository.CreateWorkAsync(work)
+                .ContinueWith(_ => mapWorkToWorkDetailsDTO(work));
         }
 
-        public async Task<Work> UpdateWorkAsync(UpdateWorkDTO workDTO)
+        public async Task<WorkDetailsDTO> UpdateWorkAsync(UpdateWorkDTO workDTO)
         {
             var work = await _workRepository.GetWorkAsync(workDTO.Id);
 
             work = setUpdateWorkDTOToWork(work, workDTO);
 
-            return await _workRepository.UpdateWorkAsync(work);
+            return await _workRepository.UpdateWorkAsync(work)
+                .ContinueWith(_ => mapWorkToWorkDetailsDTO(work));
         }
 
-        public async Task DeleteWorkAsync(int workId)
+        public async Task<int> DeleteWorkAsync(int workId)
         {
             await _workRepository.DeleteWorkAsync(workId);
+            return workId;
         }
 
         // Mappers

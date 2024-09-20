@@ -13,8 +13,8 @@ namespace sciencehub_backend_core.Features.Works.Services
         Task<IEnumerable<WorkSearchDTO>> GetWorksByTypeAndUserIdAsync(WorkType workType, int userId);
         Task<IEnumerable<WorkSearchDTO>> GetWorksByTypeAndProjectIdAsync(WorkType workType, int projectId);
         Task<PaginatedResults<WorkSearchDTO>> SearchWorksByTypeAndUserIdAsync(int userId, WorkType workType, SearchParams searchParams);
-        Task<Work> CreateWorkAsync(CreateWorkDTO workDTO);
-        Task<Work> UpdateWorkAsync(UpdateWorkDTO workDTO);
-        Task DeleteWorkAsync(int workId);
+        Task<WorkDetailsDTO> CreateWorkAsync(CreateWorkDTO workDTO);
+        Task<WorkDetailsDTO> UpdateWorkAsync(UpdateWorkDTO workDTO);
+        Task<int> DeleteWorkAsync(int workId);
     }
 }
