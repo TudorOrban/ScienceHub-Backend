@@ -25,6 +25,7 @@ namespace sciencehub_backend_core.Features.Projects.Controllers
         [HttpGet("user/{userId}")]
         public async Task<ActionResult<PaginatedResults<ProjectSearchDTO>>> GetProjects(
             string userId,
+            [FromQuery] bool small = false,
             [FromQuery] string searchTerm = "",
             [FromQuery] string sortBy = "createdAt",
             [FromQuery] bool sortDescending = false,
@@ -37,7 +38,7 @@ namespace sciencehub_backend_core.Features.Projects.Controllers
             }
             SearchParams searchParams = new SearchParams { SearchTerm = searchTerm, SortBy = sortBy, SortDescending = sortDescending, Page = page, ItemsPerPage = itemsPerPage };
 
-            var projects = await _projectService.GetProjectsByUserIdAsync(parsedUserId, searchParams);
+            var projects = await _projectService.GetProjectsByUserIdAsync(parsedUserId, searchParams, small);
 
             return Ok(projects);
         }

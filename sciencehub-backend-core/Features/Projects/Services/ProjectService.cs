@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using sciencehub_backend_core.Shared.Search;
 using sciencehub_backend_core.Features.Projects.Repositories;
 using sciencehub_backend_core.Core.Users.DTOs;
+using sciencehub_backend_core.Core.Users.Models;
 
 namespace sciencehub_backend_core.Features.Projects.Services
 {
@@ -34,12 +35,12 @@ namespace sciencehub_backend_core.Features.Projects.Services
             _databaseValidation = databaseValidation;
         }
         
-        public async Task<PaginatedResults<ProjectSearchDTO>> GetProjectsByUserIdAsync(int userId, SearchParams searchParams)
+        public async Task<PaginatedResults<ProjectSearchDTO>> GetProjectsByUserIdAsync(int userId, SearchParams searchParams, bool? small)
         {
             var paginatedProjects = await _projectRepository.GetProjectsByUserIdAsync(userId, searchParams);
             
             // Attach users
-            var projectDTOs = attachUsers(paginatedProjects);
+            var projectDTOs = mapToDTO(paginatedProjects);
 
             return new PaginatedResults<ProjectSearchDTO>
             {
@@ -59,22 +60,30 @@ namespace sciencehub_backend_core.Features.Projects.Services
             return project!;
         }
 
-        private List<ProjectSearchDTO> attachUsers(PaginatedResults<Project> paginatedProjects)
+        private List<ProjectSearchDTO> mapToDTO(PaginatedResults<Project> paginatedProjects, bool? small = false)
         {
-            var projectDTOs = paginatedProjects.Results.Select(p => new ProjectSearchDTO
-            {
-                Id = p.Id,
-                Name = p.Name,
-                Title = p.Title,
-                Description = p.Description,
-                Users = p.ProjectUsers.Select(pu => new UserSmallDTO
+            var projectDTOs = paginatedProjects.Results.Select(p => {
+                var dto = new ProjectSearchDTO
                 {
-                    Id = pu.UserId,
-                    Username = pu.User.Username,
-                    FullName = pu.User.FullName
-                }).ToList()
-            }).ToList();
+                    Id = p.Id,
+                    Name = p.Name,
+                    Title = p.Title,
+                };
 
+                if (small == false)
+                {
+                    dto.Description = p.Description;
+                    dto.Users = p.ProjectUsers.Select(pu => new UserSmallDTO
+                    {
+                        Id = pu.UserId,
+                        Username = pu.User.Username,
+                        FullName = pu.User.FullName
+                    }).ToList();
+                }
+
+                return dto;
+            }).ToList();
+            
             return projectDTOs;
         }
 

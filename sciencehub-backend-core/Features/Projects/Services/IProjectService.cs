@@ -6,7 +6,7 @@ namespace sciencehub_backend_core.Features.Projects.Services
 {
     public interface IProjectService
     {
-        Task<PaginatedResults<ProjectSearchDTO>> GetProjectsByUserIdAsync(int userId, SearchParams searchParams);
+        Task<PaginatedResults<ProjectSearchDTO>> GetProjectsByUserIdAsync(int userId, SearchParams searchParams, bool? small = false);
         Task<Project> GetProjectByIdAsync(int projectId);
         Task<Project> CreateProjectAsync(CreateProjectDTO createProjectDTO);
 
