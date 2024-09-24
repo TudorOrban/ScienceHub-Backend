@@ -6,6 +6,8 @@ using sciencehub_backend_community.Core.Users.Services;
 using sciencehub_backend_community.Data;
 using sciencehub_backend_community.Exceptions;
 using sciencehub_backend_community.Exceptions.Errors;
+using sciencehub_backend_community.Features.Chats.Repositories;
+using sciencehub_backend_community.Features.Chats.Services;
 using sciencehub_backend_community.Features.Discussions.Repositories;
 using sciencehub_backend_community.Features.Discussions.Services;
 
@@ -29,8 +31,13 @@ namespace sciencehub_backend_community.Core.Config
         // Add services to the container
         public static void ConfigureServices(WebApplicationBuilder builder)
         {
+            // Inner services
             builder.Services.AddScoped<IDiscussionRepository, DiscussionRepository>();
             builder.Services.AddScoped<IDiscussionService, DiscussionService>();
+            builder.Services.AddScoped<IChatRepository, ChatRepository>();
+            builder.Services.AddScoped<IChatService, ChatService>();
+
+            // Inter-communication services
             builder.Services.AddScoped<IUserService, UserService>();
 
             
