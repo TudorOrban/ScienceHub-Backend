@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using sciencehub_backend_core.Features.Submissions.VersionControlSystem.Models;
-using sciencehub_backend_core.Shared.Enums;
-using sciencehub_backend_core.Shared.Serialization;
+using sciencehub_core.Features.Submissions.VersionControlSystem.Models;
+using sciencehub_core.Shared.Enums;
+using sciencehub_core.Shared.Serialization;
 
-namespace sciencehub_backend_core.Features.Submissions.VersionControlSystem.Reconstruction.Models
+namespace sciencehub_core.Features.Submissions.VersionControlSystem.Reconstruction.Models
 {
     [Table("work_versions_graphs")]
     public class WorkGraph

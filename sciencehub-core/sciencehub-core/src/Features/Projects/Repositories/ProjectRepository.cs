@@ -1,9 +1,9 @@
-using sciencehub_backend_core.Data;
-using sciencehub_backend_core.Features.Projects.Models;
-using sciencehub_backend_core.Shared.Search;
+using sciencehub_core.Data;
+using sciencehub_core.Features.Projects.Models;
+using sciencehub_core.Shared.Search;
 using Microsoft.EntityFrameworkCore;
 
-namespace sciencehub_backend_core.Features.Projects.Repositories 
+namespace sciencehub_core.Features.Projects.Repositories 
 {
     public class ProjectRepository : IProjectRepository
     {

@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using sciencehub_backend_community.Data;
-using sciencehub_backend_community.Features.Chats.Models;
-using sciencehub_backend_core.Shared.Search;
+using sciencehub_community.Data;
+using sciencehub_community.Features.Chats.Models;
+using sciencehub_core.Shared.Search;
 
-namespace sciencehub_backend_community.Features.Chats.Repositories
+namespace sciencehub_community.Features.Chats.Repositories
 {
     public class ChatRepository : IChatRepository
     {

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc.Testing;
 
-namespace sciencehub_backend_core.IntegrationTests
+namespace sciencehub_core.IntegrationTests
 {
     public class BasicTests 
     : IClassFixture<WebApplicationFactory<Program>>

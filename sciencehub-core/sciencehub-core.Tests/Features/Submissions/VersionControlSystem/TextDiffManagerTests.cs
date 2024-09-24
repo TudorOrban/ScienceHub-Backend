@@ -1,7 +1,7 @@
-using sciencehub_backend_core.Features.Submissions.VersionControlSystem.Models;
-using sciencehub_backend_core.Tests.Features.Submissions.VersionControlSystem.Utils;
+using sciencehub_core.Features.Submissions.VersionControlSystem.Models;
+using sciencehub_core.Tests.Features.Submissions.VersionControlSystem.Utils;
 
-namespace sciencehub_backend_core.Tests.Features.Submissions.VersionControlSystem
+namespace sciencehub_core.Tests.Features.Submissions.VersionControlSystem
 {
     public class TextDiffManagerTests
     {

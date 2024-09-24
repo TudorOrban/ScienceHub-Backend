@@ -1,6 +1,6 @@
 
 
-using sciencehub_backend_community.Core.Config;
+using sciencehub_community.Core.Config;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,7 +1,7 @@
-using sciencehub_backend_community.Core.Users.Models;
-using sciencehub_backend_community.Features.Chats.Models;
+using sciencehub_community.Core.Users.Models;
+using sciencehub_community.Features.Chats.Models;
 
-namespace sciencehub_backend_community.Features.Chats.DTOs
+namespace sciencehub_community.Features.Chats.DTOs
 {
     public class ChatSearchDTO
     {

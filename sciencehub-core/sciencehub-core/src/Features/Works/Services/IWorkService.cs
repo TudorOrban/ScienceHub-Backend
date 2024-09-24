@@ -1,9 +1,9 @@
-using sciencehub_backend_core.Features.Works.DTOs;
-using sciencehub_backend_core.Features.Works.Models;
-using sciencehub_backend_core.Shared.Enums;
-using sciencehub_backend_core.Shared.Search;
+using sciencehub_core.Features.Works.DTOs;
+using sciencehub_core.Features.Works.Models;
+using sciencehub_core.Shared.Enums;
+using sciencehub_core.Shared.Search;
 
-namespace sciencehub_backend_core.Features.Works.Services
+namespace sciencehub_core.Features.Works.Services
 {
     public interface IWorkService
     {

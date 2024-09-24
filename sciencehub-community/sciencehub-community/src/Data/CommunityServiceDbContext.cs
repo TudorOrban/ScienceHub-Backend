@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using sciencehub_backend_community.Features.Chats.Models;
-using sciencehub_backend_community.Features.Discussions.Models;
+using sciencehub_community.Features.Chats.Models;
+using sciencehub_community.Features.Discussions.Models;
 
 
-namespace sciencehub_backend_community.Data
+namespace sciencehub_community.Data
 {
     public class CommunityServiceDbContext : DbContext
     {

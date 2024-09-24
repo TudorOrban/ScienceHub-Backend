@@ -1,6 +1,6 @@
 using System.Text.Json;
 
-namespace sciencehub_backend_core.Shared.Serialization
+namespace sciencehub_core.Shared.Serialization
 {
     public class CustomJsonSerializer
     {

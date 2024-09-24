@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace sciencehub_backend_core.Features.Reviews.DTOs
+namespace sciencehub_core.Features.Reviews.DTOs
 {
     public class CreateReviewDTO : IValidatableObject
     {

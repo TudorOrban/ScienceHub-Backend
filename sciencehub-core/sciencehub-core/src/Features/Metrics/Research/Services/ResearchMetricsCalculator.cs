@@ -1,7 +1,7 @@
-using sciencehub_backend_core.Features.Metrics.Research.Models;
-using sciencehub_backend_core.Features.Metrics.Research.Services;
+using sciencehub_core.Features.Metrics.Research.Models;
+using sciencehub_core.Features.Metrics.Research.Services;
 
-namespace sciencehub_backend_core.Features.Metrics
+namespace sciencehub_core.Features.Metrics
 {
     public class ResearchMetricsCalculator : IResearchMetricsCalculator
     {

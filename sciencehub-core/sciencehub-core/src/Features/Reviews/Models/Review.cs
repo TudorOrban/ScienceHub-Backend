@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using sciencehub_backend_core.Shared.Enums;
+using sciencehub_core.Shared.Enums;
 
-namespace sciencehub_backend_core.Features.Reviews.Models
+namespace sciencehub_core.Features.Reviews.Models
 {
     [Table("reviews")]
     public class Review

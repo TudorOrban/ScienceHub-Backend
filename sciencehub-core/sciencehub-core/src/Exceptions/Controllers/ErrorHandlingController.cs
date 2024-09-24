@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace sciencehub_backend_core.Exceptions.Controllers
+namespace sciencehub_core.Exceptions.Controllers
 {
     [ApiController]
     [Route("/api/v1/error")]

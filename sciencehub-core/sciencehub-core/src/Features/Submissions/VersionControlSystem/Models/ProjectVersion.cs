@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace sciencehub_backend_core.Features.Projects.Models
+namespace sciencehub_core.Features.Projects.Models
 {
     [Table("project_versions")]
     public class ProjectVersion

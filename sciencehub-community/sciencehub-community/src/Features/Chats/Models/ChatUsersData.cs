@@ -1,8 +1,8 @@
 
 using System.Text.Json.Serialization;
-using sciencehub_backend_community.Core.Users.Models;
+using sciencehub_community.Core.Users.Models;
 
-namespace sciencehub_backend_community.Features.Chats.Models
+namespace sciencehub_community.Features.Chats.Models
 {
     public class ChatUsersData
     {

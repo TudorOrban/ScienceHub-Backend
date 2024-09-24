@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
 builder.WebHost.UseUrls($"http://*:{port}");
 
-var app = sciencehub_backend_core.Core.Config.ConfigLoader.ConfigureApplication(builder, false);
+var app = sciencehub_core.Core.Config.ConfigLoader.ConfigureApplication(builder, false);
 
 app.Run();
 

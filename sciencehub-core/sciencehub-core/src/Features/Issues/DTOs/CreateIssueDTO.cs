@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace sciencehub_backend_core.Features.Issues.DTOs
+namespace sciencehub_core.Features.Issues.DTOs
 {
     public class CreateIssueDTO : IValidatableObject
     {

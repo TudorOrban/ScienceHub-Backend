@@ -1,8 +1,8 @@
-using sciencehub_backend_core.Features.Issues.Models;
-using sciencehub_backend_core.Shared.Enums;
-using sciencehub_backend_core.Shared.Search;
+using sciencehub_core.Features.Issues.Models;
+using sciencehub_core.Shared.Enums;
+using sciencehub_core.Shared.Search;
 
-namespace sciencehub_backend_core.Features.Issues.Repositories
+namespace sciencehub_core.Features.Issues.Repositories
 {
     public interface IIssueRepository
     {

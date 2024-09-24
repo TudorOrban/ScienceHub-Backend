@@ -1,30 +1,30 @@
 
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
-using sciencehub_backend_core.Core.Users.Services;
-using sciencehub_backend_core.Data;
-using sciencehub_backend_core.Exceptions;
-using sciencehub_backend_core.Features.Issues.Repositories;
-using sciencehub_backend_core.Features.Issues.Services;
-using sciencehub_backend_core.Features.Metrics;
-using sciencehub_backend_core.Features.Metrics.Research.Services;
-using sciencehub_backend_core.Features.Projects.Repositories;
-using sciencehub_backend_core.Features.Projects.Services;
-using sciencehub_backend_core.Features.Reviews.Repositories;
-using sciencehub_backend_core.Features.Reviews.Services;
-using sciencehub_backend_core.Features.Submissions.Services;
-using sciencehub_backend_core.Features.Submissions.VersionControlSystem.Models;
-using sciencehub_backend_core.Features.Submissions.VersionControlSystem.Reconstruction;
-using sciencehub_backend_core.Features.Submissions.VersionControlSystem.Reconstruction.Services;
-using sciencehub_backend_core.Features.Submissions.VersionControlSystem.Services;
-using sciencehub_backend_core.Features.Works.Repositories;
-using sciencehub_backend_core.Shared.Enums;
-using sciencehub_backend_core.Shared.Sanitation;
-using sciencehub_backend_core.Shared.Serialization;
-using sciencehub_backend_core.Shared.Validation;
+using sciencehub_core.Core.Users.Services;
+using sciencehub_core.Data;
+using sciencehub_core.Exceptions;
+using sciencehub_core.Features.Issues.Repositories;
+using sciencehub_core.Features.Issues.Services;
+using sciencehub_core.Features.Metrics;
+using sciencehub_core.Features.Metrics.Research.Services;
+using sciencehub_core.Features.Projects.Repositories;
+using sciencehub_core.Features.Projects.Services;
+using sciencehub_core.Features.Reviews.Repositories;
+using sciencehub_core.Features.Reviews.Services;
+using sciencehub_core.Features.Submissions.Services;
+using sciencehub_core.Features.Submissions.VersionControlSystem.Models;
+using sciencehub_core.Features.Submissions.VersionControlSystem.Reconstruction;
+using sciencehub_core.Features.Submissions.VersionControlSystem.Reconstruction.Services;
+using sciencehub_core.Features.Submissions.VersionControlSystem.Services;
+using sciencehub_core.Features.Works.Repositories;
+using sciencehub_core.Shared.Enums;
+using sciencehub_core.Shared.Sanitation;
+using sciencehub_core.Shared.Serialization;
+using sciencehub_core.Shared.Validation;
 using System.Text.Json.Serialization;
 
-namespace sciencehub_backend_core.Core.Config
+namespace sciencehub_core.Core.Config
 {
     public static class ConfigLoader
     {

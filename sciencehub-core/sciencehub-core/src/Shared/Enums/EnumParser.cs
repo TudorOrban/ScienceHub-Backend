@@ -1,4 +1,4 @@
-namespace sciencehub_backend_core.Shared.Enums
+namespace sciencehub_core.Shared.Enums
 {
     public class EnumParser
     {

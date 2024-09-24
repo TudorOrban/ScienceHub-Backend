@@ -1,7 +1,7 @@
-using sciencehub_backend_community.Features.Discussions.Models;
-using sciencehub_backend_core.Shared.Search;
+using sciencehub_community.Features.Discussions.Models;
+using sciencehub_core.Shared.Search;
 
-namespace sciencehub_backend_community.Features.Discussions.Repositories
+namespace sciencehub_community.Features.Discussions.Repositories
 {
     public interface IDiscussionRepository
     {

@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using sciencehub_backend_core.Core.Users.DTOs;
-using sciencehub_backend_core.Features.Submissions.DTO;
-using sciencehub_backend_core.Features.Submissions.Models;
-using sciencehub_backend_core.Features.Submissions.Services;
-using sciencehub_backend_core.Features.Submissions.VersionControlSystem.Reconstruction.Services;
-using sciencehub_backend_core.Features.Submissions.VersionControlSystem.Services;
+using sciencehub_core.Core.Users.DTOs;
+using sciencehub_core.Features.Submissions.DTO;
+using sciencehub_core.Features.Submissions.Models;
+using sciencehub_core.Features.Submissions.Services;
+using sciencehub_core.Features.Submissions.VersionControlSystem.Reconstruction.Services;
+using sciencehub_core.Features.Submissions.VersionControlSystem.Services;
 
-namespace sciencehub_backend_core.Features.Submissions.Controllers
+namespace sciencehub_core.Features.Submissions.Controllers
 {
     [ApiController]
     [Route("api/v1/submissions")]

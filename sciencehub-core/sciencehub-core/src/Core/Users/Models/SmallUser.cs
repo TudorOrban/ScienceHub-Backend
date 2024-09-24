@@ -1,5 +1,5 @@
 ﻿
-namespace sciencehub_backend_core.Core.Users.Models
+namespace sciencehub_core.Core.Users.Models
 {
     public class SmallUser
     {

@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sciencehub-backend-community
+  name: sciencehub-community
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: sciencehub-backend-community
+      app: sciencehub-community
   template:
     metadata:
       labels:
-        app: sciencehub-backend-community
+        app: sciencehub-community
     spec:
       containers:
-      - name: sciencehub-backend-community
-        image: tudoraorban/sciencehub-backend-community:latest
+      - name: sciencehub-community
+        image: tudoraorban/sciencehub-community:latest
         ports:
         - containerPort: 8081
         imagePullPolicy: IfNotPresent
@@ -32,7 +32,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: sciencehub-backend-community-service
+  name: sciencehub-community-service
 spec:
   type: NodePort
   ports:
@@ -40,4 +40,4 @@ spec:
       targetPort: 8081
       nodePort: 31881
   selector:
-    app: sciencehub-backend-community
+    app: sciencehub-community

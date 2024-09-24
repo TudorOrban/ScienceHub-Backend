@@ -1,4 +1,4 @@
-﻿namespace sciencehub_backend_core.Exceptions.Errors
+﻿namespace sciencehub_core.Exceptions.Errors
 {
     public class InvalidProjectReviewIdException : Exception
     {

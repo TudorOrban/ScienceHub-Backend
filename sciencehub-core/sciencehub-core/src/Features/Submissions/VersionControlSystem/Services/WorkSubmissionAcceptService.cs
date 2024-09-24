@@ -1,18 +1,18 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
-using sciencehub_backend_core.Core.Users.DTOs;
-using sciencehub_backend_core.Core.Users.Models;
-using sciencehub_backend_core.Data;
-using sciencehub_backend_core.Exceptions.Errors;
-using sciencehub_backend_core.Features.Submissions.Models;
-using sciencehub_backend_core.Features.Submissions.VersionControlSystem.Models;
-using sciencehub_backend_core.Features.Submissions.VersionControlSystem.Reconstruction.Services;
-using sciencehub_backend_core.Features.Works.Models;
-using sciencehub_backend_core.Features.Works.Repositories;
-using sciencehub_backend_core.Shared.Enums;
-using sciencehub_backend_core.Shared.Validation;
+using sciencehub_core.Core.Users.DTOs;
+using sciencehub_core.Core.Users.Models;
+using sciencehub_core.Data;
+using sciencehub_core.Exceptions.Errors;
+using sciencehub_core.Features.Submissions.Models;
+using sciencehub_core.Features.Submissions.VersionControlSystem.Models;
+using sciencehub_core.Features.Submissions.VersionControlSystem.Reconstruction.Services;
+using sciencehub_core.Features.Works.Models;
+using sciencehub_core.Features.Works.Repositories;
+using sciencehub_core.Shared.Enums;
+using sciencehub_core.Shared.Validation;
 
-namespace sciencehub_backend_core.Features.Submissions.VersionControlSystem.Services
+namespace sciencehub_core.Features.Submissions.VersionControlSystem.Services
 {
     public class WorkSubmissionAcceptService : IWorkSubmissionAcceptService
     {

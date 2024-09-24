@@ -1,8 +1,8 @@
 
-using sciencehub_backend_core.Features.Projects.Models;
-using sciencehub_backend_core.Shared.Search;
+using sciencehub_core.Features.Projects.Models;
+using sciencehub_core.Shared.Search;
 
-namespace sciencehub_backend_core.Features.Projects.Repositories
+namespace sciencehub_core.Features.Projects.Repositories
 {
     public interface IProjectRepository
     {

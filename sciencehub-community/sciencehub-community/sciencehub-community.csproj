@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>sciencehub_backend_community</RootNamespace>
+    <RootNamespace>sciencehub_community</RootNamespace>
     <UserSecretsId>ffd7af40-cc7b-496b-adc8-57fdc421b43d</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>

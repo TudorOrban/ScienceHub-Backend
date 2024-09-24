@@ -1,9 +1,9 @@
-﻿using sciencehub_backend_core.Features.Works.Models;
-using sciencehub_backend_core.Shared.Serialization;
+﻿using sciencehub_core.Features.Works.Models;
+using sciencehub_core.Shared.Serialization;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace sciencehub_backend_core.Features.Projects.Models
+namespace sciencehub_core.Features.Projects.Models
 {
     [Table("projects")]
     public class Project

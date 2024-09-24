@@ -1,4 +1,4 @@
-namespace sciencehub_backend_core.Features.Submissions.DTO
+namespace sciencehub_core.Features.Submissions.DTO
 {
     public class GetWorkVersionDTO
     {

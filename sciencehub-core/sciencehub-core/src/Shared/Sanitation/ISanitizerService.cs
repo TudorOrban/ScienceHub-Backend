@@ -1,4 +1,4 @@
-namespace sciencehub_backend_core.Shared.Sanitation
+namespace sciencehub_core.Shared.Sanitation
 {
     public interface ISanitizerService
     {

@@ -2,18 +2,18 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Logging;
 using Moq;
-using sciencehub_backend_core.Core.Users.Models;
-using sciencehub_backend_core.Data;
-using sciencehub_backend_core.Features.Submissions.Models;
-using sciencehub_backend_core.Features.Submissions.VersionControlSystem.Models;
-using sciencehub_backend_core.Features.Submissions.VersionControlSystem.Reconstruction.Services;
-using sciencehub_backend_core.Features.Submissions.VersionControlSystem.Services;
-using sciencehub_backend_core.Features.Works.Models;
-using sciencehub_backend_core.Features.Works.Services;
-using sciencehub_backend_core.Shared.Enums;
-using sciencehub_backend_core.Shared.Validation;
+using sciencehub_core.Core.Users.Models;
+using sciencehub_core.Data;
+using sciencehub_core.Features.Submissions.Models;
+using sciencehub_core.Features.Submissions.VersionControlSystem.Models;
+using sciencehub_core.Features.Submissions.VersionControlSystem.Reconstruction.Services;
+using sciencehub_core.Features.Submissions.VersionControlSystem.Services;
+using sciencehub_core.Features.Works.Models;
+using sciencehub_core.Features.Works.Services;
+using sciencehub_core.Shared.Enums;
+using sciencehub_core.Shared.Validation;
 
-namespace sciencehub_backend_core.Tests.Features.Submissions.VersionControlSystem.Services
+namespace sciencehub_core.Tests.Features.Submissions.VersionControlSystem.Services
 {
     public class WorkSubmissionAcceptServiceTests
     {

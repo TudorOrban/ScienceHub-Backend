@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sciencehub-backend-core
+  name: sciencehub-api-gateway
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: sciencehub-backend-core
+      app: sciencehub-api-gateway
   template:
     metadata:
       labels:
-        app: sciencehub-backend-core
+        app: sciencehub-api-gateway
     spec:
       containers:
-      - name: sciencehub-backend-core
-        image: tudoraorban/sciencehub-backend-core:latest
+      - name: sciencehub-api-gateway
+        image: tudoraorban/sciencehub-api-gateway:latest
         ports:
-        - containerPort: 8080
+        - containerPort: 8082
         imagePullPolicy: IfNotPresent
         env:
         - name: ASPNETCORE_ENVIRONMENT
-          value: Production
+          value: "Production"
         resources:
           requests:
             memory: "512Mi"
@@ -32,12 +32,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: sciencehub-backend-core-service
+  name: sciencehub-api-gateway-service
 spec:
   type: NodePort
   ports:
-    - port: 8080
-      targetPort: 8080
-      nodePort: 31880
+    - port: 8082
+      targetPort: 8082
+      nodePort: 31882
   selector:
-    app: sciencehub-backend-core
+    app: sciencehub-api-gateway

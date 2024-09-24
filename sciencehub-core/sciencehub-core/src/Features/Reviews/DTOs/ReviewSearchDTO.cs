@@ -1,10 +1,10 @@
-using sciencehub_backend_core.Core.Users.DTOs;
-using sciencehub_backend_core.Features.Reviews.Models;
-using sciencehub_backend_core.Features.Projects.DTOs;
-using sciencehub_backend_core.Features.Works.DTOs;
-using sciencehub_backend_core.Shared.Enums;
+using sciencehub_core.Core.Users.DTOs;
+using sciencehub_core.Features.Reviews.Models;
+using sciencehub_core.Features.Projects.DTOs;
+using sciencehub_core.Features.Works.DTOs;
+using sciencehub_core.Shared.Enums;
 
-namespace sciencehub_backend_core.Features.Reviews.DTOs
+namespace sciencehub_core.Features.Reviews.DTOs
 {
     public class ReviewSearchDTO
     {

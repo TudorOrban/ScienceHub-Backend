@@ -1,7 +1,7 @@
-using sciencehub_backend_core.Features.Works.Models;
-using sciencehub_backend_core.Features.Projects.Models;
+using sciencehub_core.Features.Works.Models;
+using sciencehub_core.Features.Projects.Models;
 
-namespace sciencehub_backend_core.Features.Submissions.VersionControlSystem.Reconstruction.Models
+namespace sciencehub_core.Features.Submissions.VersionControlSystem.Reconstruction.Models
 {
     public class SnapshotData
     {

@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using sciencehub_backend_core.Shared.Enums;
+using sciencehub_core.Shared.Enums;
 
-namespace sciencehub_backend_core.Features.Issues.Models
+namespace sciencehub_core.Features.Issues.Models
 {
     [Table("issues")]
     public class Issue

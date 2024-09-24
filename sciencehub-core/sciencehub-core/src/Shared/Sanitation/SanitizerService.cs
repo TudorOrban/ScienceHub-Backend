@@ -1,5 +1,5 @@
 ﻿using Ganss.Xss;
-using sciencehub_backend_core.Shared.Sanitation;
+using sciencehub_core.Shared.Sanitation;
 
 public class SanitizerService : ISanitizerService
 {

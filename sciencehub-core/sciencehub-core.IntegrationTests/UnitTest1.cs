@@ -1,4 +1,4 @@
-namespace sciencehub_backend_core.IntegrationTests;
+namespace sciencehub_core.IntegrationTests;
 
 public class UnitTest1
 {

@@ -1,9 +1,9 @@
-﻿using sciencehub_backend_core.Exceptions.Errors;
+﻿using sciencehub_core.Exceptions.Errors;
 using System.Net;
 using Newtonsoft.Json;
 using Microsoft.EntityFrameworkCore;
 
-namespace sciencehub_backend_core.Exceptions
+namespace sciencehub_core.Exceptions
 {
     public class CustomErrorHandlingMiddleware
     {

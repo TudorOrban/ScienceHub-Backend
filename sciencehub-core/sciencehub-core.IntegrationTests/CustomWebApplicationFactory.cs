@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
-using sciencehub_backend_core.Data;
-using sciencehub_backend_core.Core.Config;
+using sciencehub_core.Data;
+using sciencehub_core.Core.Config;
 
-namespace sciencehub_backend_core.IntegrationTests
+namespace sciencehub_core.IntegrationTests
 {
     public class CustomWebApplicationFactory : WebApplicationFactory<Program>
     {

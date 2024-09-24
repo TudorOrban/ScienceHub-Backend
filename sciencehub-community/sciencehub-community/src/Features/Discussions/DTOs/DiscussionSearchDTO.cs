@@ -1,7 +1,7 @@
-using sciencehub_backend_community.Core.Users.Models;
-using sciencehub_backend_community.Features.Discussions.Models;
+using sciencehub_community.Core.Users.Models;
+using sciencehub_community.Features.Discussions.Models;
 
-namespace sciencehub_backend_community.Features.Discussions.DTOs
+namespace sciencehub_community.Features.Discussions.DTOs
 {
     public class DiscussionSearchDTO
     {

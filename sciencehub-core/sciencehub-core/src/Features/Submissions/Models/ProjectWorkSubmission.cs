@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace sciencehub_backend_core.Features.Submissions.Models
+namespace sciencehub_core.Features.Submissions.Models
 {
     public class ProjectWorkSubmission
     {

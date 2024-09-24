@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>sciencehub_backend_api_gateway</RootNamespace>
+    <RootNamespace>sciencehub_api_gateway</RootNamespace>
     <UserSecretsId>735c9429-9fad-4232-b806-d67fb4f6c4ac</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>

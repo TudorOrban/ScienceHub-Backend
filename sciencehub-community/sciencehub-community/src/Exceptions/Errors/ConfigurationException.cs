@@ -1,4 +1,4 @@
-namespace sciencehub_backend_community.Exceptions.Errors
+namespace sciencehub_community.Exceptions.Errors
 {
     public class ConfigurationException : Exception
     {

@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
-using sciencehub_backend_community.Features.Chats.DTOs;
-using sciencehub_backend_community.Features.Chats.Services;
-using sciencehub_backend_core.Shared.Search;
+using sciencehub_community.Features.Chats.DTOs;
+using sciencehub_community.Features.Chats.Services;
+using sciencehub_core.Shared.Search;
 
-namespace sciencehub_backend_community.Features.Chats.Controllers
+namespace sciencehub_community.Features.Chats.Controllers
 {
     [ApiController]
     [Route("api/v1/chats")]

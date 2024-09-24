@@ -1,4 +1,4 @@
-namespace sciencehub_backend_core.Tests.Features.Submissions.VersionControlSystem.Utils
+namespace sciencehub_core.Tests.Features.Submissions.VersionControlSystem.Utils
 {
     public class RandomDataGenerator
     {

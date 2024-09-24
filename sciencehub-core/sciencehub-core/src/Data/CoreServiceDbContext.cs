@@ -1,15 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using sciencehub_backend_core.Core.Users.Models;
-using sciencehub_backend_core.Features.Issues.Models;
-using sciencehub_backend_core.Features.Works.Models;
-using sciencehub_backend_core.Features.Projects.Models;
-using sciencehub_backend_core.Features.Reviews.Models;
-using sciencehub_backend_core.Features.Submissions.Models;
-using sciencehub_backend_core.Features.Submissions.VersionControlSystem.Models;
-using sciencehub_backend_core.Features.Submissions.VersionControlSystem.Reconstruction.Models;
-using sciencehub_backend_core.Shared.Enums;
+using sciencehub_core.Core.Users.Models;
+using sciencehub_core.Features.Issues.Models;
+using sciencehub_core.Features.Works.Models;
+using sciencehub_core.Features.Projects.Models;
+using sciencehub_core.Features.Reviews.Models;
+using sciencehub_core.Features.Submissions.Models;
+using sciencehub_core.Features.Submissions.VersionControlSystem.Models;
+using sciencehub_core.Features.Submissions.VersionControlSystem.Reconstruction.Models;
+using sciencehub_core.Shared.Enums;
 
-namespace sciencehub_backend_core.Data
+namespace sciencehub_core.Data
 {
     public class CoreServiceDbContext : DbContext
     {

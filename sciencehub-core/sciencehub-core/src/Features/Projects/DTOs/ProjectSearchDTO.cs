@@ -1,7 +1,7 @@
 ﻿
-using sciencehub_backend_core.Core.Users.DTOs;
+using sciencehub_core.Core.Users.DTOs;
 
-namespace sciencehub_backend_core.Features.Projects.DTOs
+namespace sciencehub_core.Features.Projects.DTOs
 {
     public class ProjectSearchDTO
     {

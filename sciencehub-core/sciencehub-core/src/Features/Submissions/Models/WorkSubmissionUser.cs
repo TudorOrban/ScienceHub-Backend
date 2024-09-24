@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using sciencehub_backend_core.Core.Users.Models;
+using sciencehub_core.Core.Users.Models;
 
-namespace sciencehub_backend_core.Features.Submissions.Models
+namespace sciencehub_core.Features.Submissions.Models
 {
     public class WorkSubmissionUser
     {

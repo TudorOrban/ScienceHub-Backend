@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace sciencehub_backend_core.Features.Submissions.VersionControlSystem.Models
+namespace sciencehub_core.Features.Submissions.VersionControlSystem.Models
 {
     public class WorkDelta
     {

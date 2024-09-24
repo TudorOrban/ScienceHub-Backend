@@ -1,4 +1,4 @@
-namespace sciencehub_backend_core.Features.Projects.DTOs
+namespace sciencehub_core.Features.Projects.DTOs
 {
     public class ProjectSmallDTO
     {

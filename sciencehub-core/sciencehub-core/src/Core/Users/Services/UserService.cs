@@ -1,11 +1,11 @@
-using sciencehub_backend_core.Data;
+using sciencehub_core.Data;
 using Microsoft.EntityFrameworkCore;
-using sciencehub_backend_core.Core.Users.DTOs;
-using sciencehub_backend_core.Exceptions.Errors;
-using sciencehub_backend_core.Core.Users.Models;
-using sciencehub_backend_core.Shared.Search;
+using sciencehub_core.Core.Users.DTOs;
+using sciencehub_core.Exceptions.Errors;
+using sciencehub_core.Core.Users.Models;
+using sciencehub_core.Shared.Search;
 
-namespace sciencehub_backend_core.Core.Users.Services
+namespace sciencehub_core.Core.Users.Services
 {
     public class UserService : IUserService
     {

@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
-using sciencehub_backend_core.Features.Issues.DTOs;
-using sciencehub_backend_core.Features.Issues.Models;
-using sciencehub_backend_core.Features.Issues.Services;
-using sciencehub_backend_core.Shared.Enums;
-using sciencehub_backend_core.Shared.Search;
+using sciencehub_core.Features.Issues.DTOs;
+using sciencehub_core.Features.Issues.Models;
+using sciencehub_core.Features.Issues.Services;
+using sciencehub_core.Shared.Enums;
+using sciencehub_core.Shared.Search;
 
-namespace sciencehub_backend_core.Features.Issues.Controllers
+namespace sciencehub_core.Features.Issues.Controllers
 {
     [ApiController]
     [Route("api/v1/issues")]

@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using sciencehub_backend_community.Core.Users.Models;
+using sciencehub_community.Core.Users.Models;
 
-namespace sciencehub_backend_community.Features.Discussions.Models
+namespace sciencehub_community.Features.Discussions.Models
 {
     [Table("discussions")]
     public class Discussion

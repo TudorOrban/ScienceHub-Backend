@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using sciencehub_backend_core.Features.Submissions.VersionControlSystem.Models;
-using sciencehub_backend_core.Shared.Serialization;
+using sciencehub_core.Features.Submissions.VersionControlSystem.Models;
+using sciencehub_core.Shared.Serialization;
 
-namespace sciencehub_backend_core.Features.Projects.Models
+namespace sciencehub_core.Features.Projects.Models
 {
     [Table("project_versions_graphs")]
     public class ProjectGraph

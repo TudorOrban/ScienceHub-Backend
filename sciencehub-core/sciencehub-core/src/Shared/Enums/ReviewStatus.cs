@@ -1,7 +1,7 @@
 ﻿using NpgsqlTypes;
 using System.ComponentModel;
 
-namespace sciencehub_backend_core.Shared.Enums
+namespace sciencehub_core.Shared.Enums
 {
     public enum ReviewStatus
     {

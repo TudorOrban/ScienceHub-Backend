@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore.Storage;
-using sciencehub_backend_core.Features.Submissions.Models;
+using sciencehub_core.Features.Submissions.Models;
 
-namespace sciencehub_backend_core.Features.Submissions.VersionControlSystem.Services
+namespace sciencehub_core.Features.Submissions.VersionControlSystem.Services
 {
     public interface IWorkSubmissionSubmitService
     {

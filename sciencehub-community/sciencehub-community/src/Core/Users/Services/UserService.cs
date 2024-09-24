@@ -1,9 +1,9 @@
 
 using System.Text.Json;
 using System.Web;
-using sciencehub_backend_community.Core.Users.Models;
+using sciencehub_community.Core.Users.Models;
 
-namespace sciencehub_backend_community.Core.Users.Services
+namespace sciencehub_community.Core.Users.Services
 {
     public class UserService : IUserService
     {

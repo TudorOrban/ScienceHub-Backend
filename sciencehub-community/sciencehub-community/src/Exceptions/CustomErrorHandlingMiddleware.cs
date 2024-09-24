@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using Microsoft.EntityFrameworkCore;
 
-namespace sciencehub_backend_community.Exceptions
+namespace sciencehub_community.Exceptions
 {
     public class CustomErrorHandlingMiddleware
     {

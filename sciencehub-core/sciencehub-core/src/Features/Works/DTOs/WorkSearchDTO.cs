@@ -1,9 +1,9 @@
-using sciencehub_backend_core.Features.Works.Models;
-using sciencehub_backend_core.Features.Submissions.VersionControlSystem.Models;
-using sciencehub_backend_core.Shared.Enums;
-using sciencehub_backend_core.Core.Users.DTOs;
+using sciencehub_core.Features.Works.Models;
+using sciencehub_core.Features.Submissions.VersionControlSystem.Models;
+using sciencehub_core.Shared.Enums;
+using sciencehub_core.Core.Users.DTOs;
 
-namespace sciencehub_backend_core.Features.Works.DTOs
+namespace sciencehub_core.Features.Works.DTOs
 {
     public class WorkSearchDTO
     {

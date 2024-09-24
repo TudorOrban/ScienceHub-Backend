@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using sciencehub_backend_core.Data;
-using sciencehub_backend_core.Features.Projects.Models;
-using sciencehub_backend_core.Features.Projects.DTOs;
-using sciencehub_backend_core.Features.Projects.Services;
-using sciencehub_backend_core.Shared.Search;
+using sciencehub_core.Data;
+using sciencehub_core.Features.Projects.Models;
+using sciencehub_core.Features.Projects.DTOs;
+using sciencehub_core.Features.Projects.Services;
+using sciencehub_core.Shared.Search;
 
-namespace sciencehub_backend_core.Features.Projects.Controllers
+namespace sciencehub_core.Features.Projects.Controllers
 {
     [ApiController]
     [Route("api/v1/projects")]

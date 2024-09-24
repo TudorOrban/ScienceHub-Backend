@@ -1,7 +1,7 @@
-using sciencehub_backend_community.Features.Discussions.DTOs;
-using sciencehub_backend_core.Shared.Search;
+using sciencehub_community.Features.Discussions.DTOs;
+using sciencehub_core.Shared.Search;
 
-namespace sciencehub_backend_community.Features.Discussions.Services
+namespace sciencehub_community.Features.Discussions.Services
 {
     public interface IDiscussionService
     {

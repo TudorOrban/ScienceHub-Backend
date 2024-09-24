@@ -1,6 +1,6 @@
-using sciencehub_backend_core.Shared.Enums;
+using sciencehub_core.Shared.Enums;
 
-namespace sciencehub_backend_core.Shared.Validation
+namespace sciencehub_core.Shared.Validation
 {
     public interface IDatabaseValidation
     {

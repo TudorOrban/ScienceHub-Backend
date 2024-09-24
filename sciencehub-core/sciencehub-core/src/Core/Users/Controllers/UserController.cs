@@ -1,10 +1,10 @@
-using sciencehub_backend_core.Core.Users.Services;
+using sciencehub_core.Core.Users.Services;
 
 using Microsoft.AspNetCore.Mvc;
-using sciencehub_backend_core.Core.Users.DTOs;
-using sciencehub_backend_core.Shared.Search;
+using sciencehub_core.Core.Users.DTOs;
+using sciencehub_core.Shared.Search;
 
-namespace sciencehub_backend_core.Core.Users.Controllers
+namespace sciencehub_core.Core.Users.Controllers
 {
     [ApiController]
     [Route("api/v1/users")]

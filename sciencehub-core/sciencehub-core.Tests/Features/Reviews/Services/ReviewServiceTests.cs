@@ -2,14 +2,14 @@
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Logging;
 using Moq;
-using sciencehub_backend_core_core.Core.Users.Models;
-using sciencehub_backend_core.Data;
-using sciencehub_backend_core.Features.Reviews.Dto;
-using sciencehub_backend_core.Features.Reviews.Services;
-using sciencehub_backend_core.Shared.Sanitation;
-using sciencehub_backend_core.Shared.Validation;
+using sciencehub_core_core.Core.Users.Models;
+using sciencehub_core.Data;
+using sciencehub_core.Features.Reviews.Dto;
+using sciencehub_core.Features.Reviews.Services;
+using sciencehub_core.Shared.Sanitation;
+using sciencehub_core.Shared.Validation;
 
-namespace sciencehub_backend_core_core.Tests.Features.Reviews.Services
+namespace sciencehub_core_core.Tests.Features.Reviews.Services
 {
     public class ReviewServiceTests
     {

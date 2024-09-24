@@ -1,11 +1,11 @@
-using sciencehub_backend_community.Core.Users.Models;
-using sciencehub_backend_community.Core.Users.Services;
-using sciencehub_backend_community.Features.Chats.DTOs;
-using sciencehub_backend_community.Features.Chats.Models;
-using sciencehub_backend_community.Features.Chats.Repositories;
-using sciencehub_backend_core.Shared.Search;
+using sciencehub_community.Core.Users.Models;
+using sciencehub_community.Core.Users.Services;
+using sciencehub_community.Features.Chats.DTOs;
+using sciencehub_community.Features.Chats.Models;
+using sciencehub_community.Features.Chats.Repositories;
+using sciencehub_core.Shared.Search;
 
-namespace sciencehub_backend_community.Features.Chats.Services
+namespace sciencehub_community.Features.Chats.Services
 {
     public class ChatService : IChatService
     {

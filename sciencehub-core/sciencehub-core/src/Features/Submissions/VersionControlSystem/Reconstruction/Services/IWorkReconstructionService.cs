@@ -1,7 +1,7 @@
-using sciencehub_backend_core.Features.Submissions.Models;
-using sciencehub_backend_core.Features.Works.Models;
+using sciencehub_core.Features.Submissions.Models;
+using sciencehub_core.Features.Works.Models;
 
-namespace sciencehub_backend_core.Features.Submissions.VersionControlSystem.Reconstruction.Services
+namespace sciencehub_core.Features.Submissions.VersionControlSystem.Reconstruction.Services
 {
     public interface IWorkReconstructionService
     {

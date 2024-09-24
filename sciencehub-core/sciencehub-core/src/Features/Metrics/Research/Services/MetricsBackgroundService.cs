@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using sciencehub_backend_core.Data;
-using sciencehub_backend_core.Features.Works.Models;
+using sciencehub_core.Data;
+using sciencehub_core.Features.Works.Models;
 
-namespace sciencehub_backend_core.Features.Metrics.Research.Services
+namespace sciencehub_core.Features.Metrics.Research.Services
 {
     public class MetricsBackgroundService : BackgroundService
     {

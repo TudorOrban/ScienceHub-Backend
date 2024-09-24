@@ -1,9 +1,9 @@
-using sciencehub_backend_core.Data;
-using sciencehub_backend_core.Exceptions.Errors;
+using sciencehub_core.Data;
+using sciencehub_core.Exceptions.Errors;
 using Microsoft.EntityFrameworkCore;
-using sciencehub_backend_core.Shared.Enums;
+using sciencehub_core.Shared.Enums;
 
-namespace sciencehub_backend_core.Shared.Validation
+namespace sciencehub_core.Shared.Validation
 {
     public class DatabaseValidation : IDatabaseValidation
     {

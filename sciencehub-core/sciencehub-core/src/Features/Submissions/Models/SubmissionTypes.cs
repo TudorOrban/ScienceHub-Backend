@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using sciencehub_backend_core.Core.Users.Models;
+using sciencehub_core.Core.Users.Models;
 
-namespace sciencehub_backend_core.Features.Submissions.VersionControlSystem.Models
+namespace sciencehub_core.Features.Submissions.VersionControlSystem.Models
 {
     [Keyless]
     public class TextDiff

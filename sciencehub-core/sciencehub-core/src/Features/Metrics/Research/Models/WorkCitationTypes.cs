@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace sciencehub_backend_core.Features.Metrics.Research.Models
+namespace sciencehub_core.Features.Metrics.Research.Models
 {
     public class WorkWithCitationDepth
     {

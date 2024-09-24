@@ -2,16 +2,16 @@
 using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
-using sciencehub_backend_community.Core.Users.Services;
-using sciencehub_backend_community.Data;
-using sciencehub_backend_community.Exceptions;
-using sciencehub_backend_community.Exceptions.Errors;
-using sciencehub_backend_community.Features.Chats.Repositories;
-using sciencehub_backend_community.Features.Chats.Services;
-using sciencehub_backend_community.Features.Discussions.Repositories;
-using sciencehub_backend_community.Features.Discussions.Services;
+using sciencehub_community.Core.Users.Services;
+using sciencehub_community.Data;
+using sciencehub_community.Exceptions;
+using sciencehub_community.Exceptions.Errors;
+using sciencehub_community.Features.Chats.Repositories;
+using sciencehub_community.Features.Chats.Services;
+using sciencehub_community.Features.Discussions.Repositories;
+using sciencehub_community.Features.Discussions.Services;
 
-namespace sciencehub_backend_community.Core.Config
+namespace sciencehub_community.Core.Config
 {
     public static class ConfigLoader
     {

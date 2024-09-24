@@ -1,10 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using sciencehub_backend_core.Features.Submissions.VersionControlSystem.Models;
-using sciencehub_backend_core.Shared.Enums;
-using sciencehub_backend_core.Shared.Serialization;
+using sciencehub_core.Features.Submissions.VersionControlSystem.Models;
+using sciencehub_core.Shared.Enums;
+using sciencehub_core.Shared.Serialization;
 
-namespace sciencehub_backend_core.Features.Works.Models
+namespace sciencehub_core.Features.Works.Models
 {
     [Table("works")]
     public class Work

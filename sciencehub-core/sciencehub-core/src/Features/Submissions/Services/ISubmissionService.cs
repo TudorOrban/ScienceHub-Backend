@@ -1,7 +1,7 @@
-using sciencehub_backend_core.Features.Submissions.DTO;
-using sciencehub_backend_core.Features.Submissions.Models;
+using sciencehub_core.Features.Submissions.DTO;
+using sciencehub_core.Features.Submissions.Models;
 
-namespace sciencehub_backend_core.Features.Submissions.Services
+namespace sciencehub_core.Features.Submissions.Services
 {
     public interface ISubmissionService
     {

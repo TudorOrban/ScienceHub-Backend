@@ -2,9 +2,9 @@
 using DiffPlex;
 using DiffPlex.DiffBuilder;
 using DiffPlex.DiffBuilder.Model;
-using sciencehub_backend_core.Features.Submissions.VersionControlSystem.Services;
+using sciencehub_core.Features.Submissions.VersionControlSystem.Services;
 
-namespace sciencehub_backend_core.Features.Submissions.VersionControlSystem.Models
+namespace sciencehub_core.Features.Submissions.VersionControlSystem.Models
 {
     public class TextDiffManager : ITextDiffManager
     {

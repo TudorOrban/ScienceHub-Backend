@@ -1,9 +1,9 @@
-using sciencehub_backend_core.Core.Users.Models;
-using sciencehub_backend_core.Features.Projects.Models;
+using sciencehub_core.Core.Users.Models;
+using sciencehub_core.Features.Projects.Models;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace sciencehub_backend_core.Features.Projects.Models
+namespace sciencehub_core.Features.Projects.Models
 {
     public class ProjectUser
     {

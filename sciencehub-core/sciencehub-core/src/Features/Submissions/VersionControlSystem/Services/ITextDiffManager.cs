@@ -1,7 +1,7 @@
 using DiffPlex.DiffBuilder.Model;
-using sciencehub_backend_core.Features.Submissions.VersionControlSystem.Models;
+using sciencehub_core.Features.Submissions.VersionControlSystem.Models;
 
-namespace sciencehub_backend_core.Features.Submissions.VersionControlSystem.Services
+namespace sciencehub_core.Features.Submissions.VersionControlSystem.Services
 {
     public interface ITextDiffManager
     {

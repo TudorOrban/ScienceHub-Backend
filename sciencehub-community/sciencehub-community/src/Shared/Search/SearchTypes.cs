@@ -1,4 +1,4 @@
-﻿namespace sciencehub_backend_core.Shared.Search
+﻿namespace sciencehub_core.Shared.Search
 {
     public class PaginatedResults<T>
     {

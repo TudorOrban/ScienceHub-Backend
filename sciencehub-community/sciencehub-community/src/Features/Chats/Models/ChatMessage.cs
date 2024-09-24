@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace sciencehub_backend_community.Features.Chats.Models
+namespace sciencehub_community.Features.Chats.Models
 {
     [Table("chat_messages")]
     public class ChatMessage

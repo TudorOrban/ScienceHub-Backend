@@ -1,13 +1,13 @@
-﻿using sciencehub_backend_core.Features.Issues.Models;
-using sciencehub_backend_core.Features.Projects.Models;
-using sciencehub_backend_core.Features.Reviews.Models;
-using sciencehub_backend_core.Features.Submissions.Models;
-using sciencehub_backend_core.Features.Works.Models;
-using sciencehub_backend_core.Shared.Serialization;
+﻿using sciencehub_core.Features.Issues.Models;
+using sciencehub_core.Features.Projects.Models;
+using sciencehub_core.Features.Reviews.Models;
+using sciencehub_core.Features.Submissions.Models;
+using sciencehub_core.Features.Works.Models;
+using sciencehub_core.Shared.Serialization;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace sciencehub_backend_core.Core.Users.Models
+namespace sciencehub_core.Core.Users.Models
 {
     [Table("users")]
     public class User

@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc.Testing;
-using sciencehub_backend_core.Features.Submissions.Models;
-using sciencehub_backend_core.Features.Works.Models;
+using sciencehub_core.Features.Submissions.Models;
+using sciencehub_core.Features.Works.Models;
 using System.Text;
 using System.Text.Json;
 
-namespace sciencehub_backend_core.IntegrationTests.VersionControl
+namespace sciencehub_core.IntegrationTests.VersionControl
 {
     public class VersionControlTests : IClassFixture<CustomWebApplicationFactory>
     {

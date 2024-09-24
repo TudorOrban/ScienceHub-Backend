@@ -1,16 +1,16 @@
-﻿using sciencehub_backend_core.Data;
-using sciencehub_backend_core.Features.Projects.Models;
-using sciencehub_backend_core.Features.Projects.DTOs;
-using sciencehub_backend_core.Shared.Validation;
-using sciencehub_backend_core.Features.Submissions.VersionControlSystem.Models;
-using sciencehub_backend_core.Shared.Sanitation;
+﻿using sciencehub_core.Data;
+using sciencehub_core.Features.Projects.Models;
+using sciencehub_core.Features.Projects.DTOs;
+using sciencehub_core.Shared.Validation;
+using sciencehub_core.Features.Submissions.VersionControlSystem.Models;
+using sciencehub_core.Shared.Sanitation;
 using Microsoft.EntityFrameworkCore;
-using sciencehub_backend_core.Shared.Search;
-using sciencehub_backend_core.Features.Projects.Repositories;
-using sciencehub_backend_core.Core.Users.DTOs;
-using sciencehub_backend_core.Core.Users.Models;
+using sciencehub_core.Shared.Search;
+using sciencehub_core.Features.Projects.Repositories;
+using sciencehub_core.Core.Users.DTOs;
+using sciencehub_core.Core.Users.Models;
 
-namespace sciencehub_backend_core.Features.Projects.Services
+namespace sciencehub_core.Features.Projects.Services
 {
     public class ProjectService : IProjectService
     {

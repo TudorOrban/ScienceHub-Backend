@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace sciencehub_backend_core.Features.Works.DTOs
+namespace sciencehub_core.Features.Works.DTOs
 {
     public class UpdateWorkDTO
     {

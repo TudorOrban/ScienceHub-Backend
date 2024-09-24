@@ -1,10 +1,10 @@
-﻿using sciencehub_backend_core.Features.Submissions.VersionControlSystem.Models;
-using sciencehub_backend_core.Shared.Enums;
-using sciencehub_backend_core.Shared.Serialization;
+﻿using sciencehub_core.Features.Submissions.VersionControlSystem.Models;
+using sciencehub_core.Shared.Enums;
+using sciencehub_core.Shared.Serialization;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace sciencehub_backend_core.Features.Submissions.Models
+namespace sciencehub_core.Features.Submissions.Models
 {
     [Table("project_submissions")]
     public class ProjectSubmission

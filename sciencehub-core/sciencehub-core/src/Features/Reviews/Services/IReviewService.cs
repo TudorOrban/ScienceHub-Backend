@@ -1,9 +1,9 @@
-using sciencehub_backend_core.Features.Reviews.DTOs;
-using sciencehub_backend_core.Features.Reviews.Models;
-using sciencehub_backend_core.Shared.Enums;
-using sciencehub_backend_core.Shared.Search;
+using sciencehub_core.Features.Reviews.DTOs;
+using sciencehub_core.Features.Reviews.Models;
+using sciencehub_core.Shared.Enums;
+using sciencehub_core.Shared.Search;
 
-namespace sciencehub_backend_core.Features.Reviews.Services
+namespace sciencehub_core.Features.Reviews.Services
 {
     public interface IReviewService
     {

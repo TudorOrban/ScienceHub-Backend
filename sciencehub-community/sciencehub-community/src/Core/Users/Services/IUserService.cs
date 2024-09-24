@@ -1,6 +1,6 @@
-using sciencehub_backend_community.Core.Users.Models;
+using sciencehub_community.Core.Users.Models;
 
-namespace sciencehub_backend_community.Core.Users.Services
+namespace sciencehub_community.Core.Users.Services
 {
     public interface IUserService
     {

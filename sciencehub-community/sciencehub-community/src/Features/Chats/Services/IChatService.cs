@@ -1,7 +1,7 @@
-using sciencehub_backend_community.Features.Chats.DTOs;
-using sciencehub_backend_core.Shared.Search;
+using sciencehub_community.Features.Chats.DTOs;
+using sciencehub_core.Shared.Search;
 
-namespace sciencehub_backend_community.Features.Chats.Services
+namespace sciencehub_community.Features.Chats.Services
 {
     public interface IChatService
     {

@@ -1,13 +1,13 @@
-using sciencehub_backend_core.Core.Users.DTOs;
-using sciencehub_backend_core.Exceptions.Errors;
-using sciencehub_backend_core.Features.Reviews.DTOs;
-using sciencehub_backend_core.Features.Reviews.Models;
-using sciencehub_backend_core.Features.Reviews.Repositories;
-using sciencehub_backend_core.Shared.Enums;
-using sciencehub_backend_core.Shared.Sanitation;
-using sciencehub_backend_core.Shared.Search;
+using sciencehub_core.Core.Users.DTOs;
+using sciencehub_core.Exceptions.Errors;
+using sciencehub_core.Features.Reviews.DTOs;
+using sciencehub_core.Features.Reviews.Models;
+using sciencehub_core.Features.Reviews.Repositories;
+using sciencehub_core.Shared.Enums;
+using sciencehub_core.Shared.Sanitation;
+using sciencehub_core.Shared.Search;
 
-namespace sciencehub_backend_core.Features.Reviews.Services
+namespace sciencehub_core.Features.Reviews.Services
 {
     public class ReviewService : IReviewService
     {
