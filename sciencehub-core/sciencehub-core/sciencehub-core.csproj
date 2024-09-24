@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <InvariantGlobalization>true</InvariantGlobalization>
-    <RootNamespace>sciencehub_backend_core_core</RootNamespace>
+    <RootNamespace>sciencehub_core</RootNamespace>
     <UserSecretsId>5e6e5ebd-86b4-4b6f-b29f-0a83f7607a3e</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
@@ -27,8 +27,8 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
 
-    <InternalsVisibleTo Include="sciencehub-backend-core.Tests" />
-    <InternalsVisibleTo Include="sciencehub-backend-core.IntegrationTests" />
+    <InternalsVisibleTo Include="sciencehub-core-core.Tests" />
+    <InternalsVisibleTo Include="sciencehub-core.IntegrationTests" />
   </ItemGroup>
 
   <ItemGroup>

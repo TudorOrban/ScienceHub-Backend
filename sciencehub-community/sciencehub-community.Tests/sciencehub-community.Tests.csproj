@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>sciencehub_backend_core.Tests</RootNamespace>
+    <RootNamespace>sciencehub_community.Tests</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
@@ -21,7 +21,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <ProjectReference Include="..\sciencehub-backend\sciencehub-backend.csproj" />
+    <ProjectReference Include="..\sciencehub-community\sciencehub-community.csproj" />
 
   </ItemGroup>
 

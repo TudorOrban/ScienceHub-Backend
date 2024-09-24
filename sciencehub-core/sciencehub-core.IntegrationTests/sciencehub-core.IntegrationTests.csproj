@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>sciencehub_backend_core.IntegrationTests</RootNamespace>
+    <RootNamespace>sciencehub_core.IntegrationTests</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
@@ -23,7 +23,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <ProjectReference Include="..\sciencehub-backend\sciencehub-backend.csproj" />
+    <ProjectReference Include="..\sciencehub-core\sciencehub-core.csproj" />
 
   </ItemGroup>
 
