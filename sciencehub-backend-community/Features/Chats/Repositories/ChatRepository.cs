@@ -14,11 +14,16 @@ namespace sciencehub_backend_community.Features.Chats.Repositories
             _context = context;
         }
 
-        public async Task<PaginatedResults<Chat>> SearchChatsByUserIdAsync(int userId, SearchParams searchParams)
+        public async Task<PaginatedResults<Chat>> SearchChatsByUserIdAsync(int userId, SearchParams searchParams, bool isPublic = false)
         {
             var query = _context.Chats
                 .Where(chat => chat.Users != null && chat.Users.ChatUsers != null && 
                     chat.Users.ChatUsers.Any(user => user.UserId == userId));
+
+            if (isPublic)
+            {
+                query = query.Where(chat => chat.IsPublic ?? false);
+            }
 
             if (!string.IsNullOrEmpty(searchParams.SearchTerm))
             {

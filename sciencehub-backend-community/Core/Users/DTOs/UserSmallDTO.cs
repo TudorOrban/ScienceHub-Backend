@@ -6,5 +6,6 @@ namespace sciencehub_backend_community.Core.Users.Models
         public string Username { get; set; } = string.Empty;
         public string? FullName { get; set; }
         public string? CreatedAt { get; set; }
+        public string? AvatarUrl { get; set; }
     }
 }

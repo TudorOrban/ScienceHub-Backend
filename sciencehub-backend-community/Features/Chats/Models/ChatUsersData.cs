@@ -1,5 +1,6 @@
 
 using System.Text.Json.Serialization;
+using sciencehub_backend_community.Core.Users.Models;
 
 namespace sciencehub_backend_community.Features.Chats.Models
 {
@@ -17,7 +18,10 @@ namespace sciencehub_backend_community.Features.Chats.Models
         [JsonPropertyName("userId")]
         public int UserId { get; set; }
 
-        [JsonPropertyName("username")]
+        [JsonPropertyName("role")]
         public string? Role { get; set; }
+
+        [JsonPropertyName("user")]
+        public UserSmallDTO? User { get; set; }
     }
 }

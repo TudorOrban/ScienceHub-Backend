@@ -19,6 +19,8 @@ namespace sciencehub_backend_community.Features.Chats.Controllers
         [HttpGet("user/{userId}/search")]
         public async Task<ActionResult<PaginatedResults<ChatSearchDTO>>> SearchChatsById(
             int userId,
+            [FromQuery] bool addUsers = false,
+            [FromQuery] bool isPublic = false,
             [FromQuery] string searchTerm = "",
             [FromQuery] int page = 1,
             [FromQuery] int itemsPerPage = 10,
@@ -27,7 +29,7 @@ namespace sciencehub_backend_community.Features.Chats.Controllers
         {
             SearchParams searchParams = new SearchParams { SearchTerm = searchTerm, Page = page, ItemsPerPage = itemsPerPage, SortBy = sortBy, SortDescending = sortDescending };
             
-            var chats = await _chatService.SearchChatsByUserIdAsync(userId, searchParams);
+            var chats = await _chatService.SearchChatsByUserIdAsync(userId, searchParams, addUsers, isPublic);
 
             return Ok(chats);
         }
