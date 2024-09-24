@@ -28,7 +28,7 @@ namespace sciencehub_backend_community.Core.Config
             return app;
         }
 
-        // Add services to the container
+
         public static void ConfigureServices(WebApplicationBuilder builder)
         {
             // Inner services
@@ -71,9 +71,6 @@ namespace sciencehub_backend_community.Core.Config
             {
                 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
                 var dataSourceBuilder = new NpgsqlDataSourceBuilder(connectionString);
-
-
-                dataSourceBuilder.EnableDynamicJson();
 
                 var dataSource = dataSourceBuilder.Build();
 

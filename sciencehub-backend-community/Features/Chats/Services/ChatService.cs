@@ -41,7 +41,7 @@ namespace sciencehub_backend_community.Features.Chats.Services
                 Content = chat.Content,
                 CreatedAt = chat.CreatedAt,
                 UpdatedAt = chat.UpdatedAt,
-                ChatUsersData = chat.UsersData,
+                ChatUsersData = chat.Users,
                 IsPublic = chat.IsPublic,
             };
         }

@@ -17,8 +17,8 @@ namespace sciencehub_backend_community.Features.Chats.Repositories
         public async Task<PaginatedResults<Chat>> SearchChatsByUserIdAsync(int userId, SearchParams searchParams)
         {
             var query = _context.Chats
-                .Where(i => i.UsersData.ChatUsers != null && i.UsersData.ChatUsers.Select(cu => cu.UserId).Contains(userId))
-                .Where(i => i.IsPublic ?? false);
+                .Where(chat => chat.Users != null && chat.Users.ChatUsers != null && 
+                    chat.Users.ChatUsers.Any(user => user.UserId == userId));
 
             if (!string.IsNullOrEmpty(searchParams.SearchTerm))
             {

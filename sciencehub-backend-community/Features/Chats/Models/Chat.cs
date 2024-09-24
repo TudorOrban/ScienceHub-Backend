@@ -1,7 +1,6 @@
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using sciencehub_backend_community.Shared.Serialization;
 
 namespace sciencehub_backend_community.Features.Chats.Models
 {
@@ -29,23 +28,7 @@ namespace sciencehub_backend_community.Features.Chats.Models
 
         public List<ChatMessage>? ChatMessages { get; set; }
 
-        private CustomJsonSerializer _serializer = new CustomJsonSerializer();
-
-        [Column("users", TypeName = "jsonb")]
-        public string? UsersDataJson { get; set; }
-
-        private ChatUsersData? _cachedUsersData = null;
-
-        [NotMapped]
-        public ChatUsersData UsersData
-        {
-            get => _cachedUsersData ??= _serializer.DeserializeFromJson<ChatUsersData>(UsersDataJson ?? "{}");
-            set
-            {
-                _cachedUsersData = value;
-                UsersDataJson = _serializer.SerializeToJson(value);
-            }
-        }
+        public ChatUsersData Users { get; set; } = new ChatUsersData();
     }
     
 }

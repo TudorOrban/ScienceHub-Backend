@@ -12,6 +12,16 @@ namespace sciencehub_backend_community.Data
 
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Chat>()
+                .OwnsOne(c => c.Users, d =>
+                {
+                    d.ToJson();
+                    d.OwnsMany(u => u.ChatUsers);
+                });
+        }
+
         public DbSet<Discussion> Discussions { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Chat> Chats { get; set; }
