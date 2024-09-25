@@ -53,6 +53,7 @@ namespace sciencehub_community.Features.Chats.Services
                 Content = chatMessage.Content,
                 CreatedAt = chatMessage.CreatedAt,
                 UpdatedAt = chatMessage.UpdatedAt,
+                UserId = chatMessage.UserId,
                 User = users != null ? users.FirstOrDefault(u => u.Id == chatMessage.UserId) : null,
             };
         }

@@ -6,5 +6,6 @@ namespace sciencehub_community.Features.Chats.Repositories
     public interface IChatRepository
     {
         Task<PaginatedResults<Chat>> SearchChatsByUserIdAsync(int userId, SearchParams searchParams, bool isPublic = false);
+        Task<Chat?> GetChatByIdAsync(int chatId);
     }
 }

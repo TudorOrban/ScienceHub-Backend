@@ -33,5 +33,15 @@ namespace sciencehub_community.Features.Chats.Controllers
 
             return Ok(chats);
         }
+
+        [HttpGet("{chatId}")]
+        public async Task<ActionResult<ChatSearchDTO>> GetChatById(
+            int chatId,
+            [FromQuery] bool addUsers = false)
+        {
+            var chat = await _chatService.GetChatByIdAsync(chatId, addUsers);
+
+            return Ok(chat);
+        }
     }
 }

@@ -1,5 +1,6 @@
 using sciencehub_community.Core.Users.Models;
 using sciencehub_community.Core.Users.Services;
+using sciencehub_community.Exceptions.Errors;
 using sciencehub_community.Features.Chats.DTOs;
 using sciencehub_community.Features.Chats.Models;
 using sciencehub_community.Features.Chats.Repositories;
@@ -29,7 +30,6 @@ namespace sciencehub_community.Features.Chats.Services
             var results = await _chatRepository.SearchChatsByUserIdAsync(userId, searchParams, isPublic);
 
             var users = new List<UserSmallDTO>();
-
             if (addUsers)
             {
                 var userIds = results.Results.SelectMany(chat => chat.Users.ChatUsers.Select(chatUser => chatUser.UserId)).Distinct().ToList();
@@ -42,6 +42,25 @@ namespace sciencehub_community.Features.Chats.Services
                 Results = results.Results.Select(result => mapChatToSearchDTO(result, users)).ToList(),
                 TotalCount = results.TotalCount,
             };
+        }
+
+        public async Task<ChatSearchDTO> GetChatByIdAsync(int chatId, bool addUsers = false)
+        {
+            var chat = await _chatRepository.GetChatByIdAsync(chatId);
+            if (chat == null)
+            {
+                throw new ResourceNotFoundException("Chat", chatId.ToString());
+            }
+
+            var users = new List<UserSmallDTO>();
+            if (addUsers)
+            {
+                var userIds = chat.Users.ChatUsers.Select(chatUser => chatUser.UserId).Distinct().ToList();
+
+                users = await _userService.GetUsersByIdsAsync(userIds);
+            }
+
+            return mapChatToSearchDTO(chat, users);
         }
 
         private ChatSearchDTO mapChatToSearchDTO(Chat chat, List<UserSmallDTO> users)

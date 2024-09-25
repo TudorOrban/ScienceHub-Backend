@@ -61,5 +61,13 @@ namespace sciencehub_community.Features.Chats.Repositories
             }
             return query;
         }
+
+        public async Task<Chat?> GetChatByIdAsync(int chatId)
+        {
+            return await _context.Chats
+                .Include(chat => chat.Users)
+                .ThenInclude(chatUsers => chatUsers.ChatUsers)
+                .FirstOrDefaultAsync(chat => chat.Id == chatId);
+        }
     }
 }
