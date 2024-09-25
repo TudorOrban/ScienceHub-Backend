@@ -7,6 +7,7 @@ namespace sciencehub_community.Features.Chats.DTOs
     {
         public long Id { get; set; }
         public ChatUsersData? ChatUsersData { get; set; }
+        public List<ChatUserDTO>? ChatUsers { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public string? Title { get; set; } = string.Empty;

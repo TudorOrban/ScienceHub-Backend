@@ -20,8 +20,13 @@ namespace sciencehub_community.Features.Chats.Models
 
         [JsonPropertyName("role")]
         public string? Role { get; set; }
+    }
 
-        [JsonPropertyName("user")]
+    public class ChatUserDTO
+    {
+        public int ChatId { get; set; }
+        public int UserId { get; set; }
+        public string? Role { get; set; }
         public UserSmallDTO? User { get; set; }
     }
 }

@@ -46,12 +46,13 @@ namespace sciencehub_community.Features.Chats.Services
 
         private ChatSearchDTO mapChatToSearchDTO(Chat chat, List<UserSmallDTO> users)
         {
-            var chatUsersData = chat.Users ?? new ChatUsersData();
-            chatUsersData.ChatUsers.ForEach(chatUser =>
+            var chatUsers = chat.Users.ChatUsers.Select(chatUser => new ChatUserDTO
             {
-                var user = users.FirstOrDefault(u => u.Id == chatUser.UserId);
-                chatUser.User = user;
-            });
+                ChatId = chatUser.ChatId,
+                UserId = chatUser.UserId,
+                Role = chatUser.Role,
+                User = users.FirstOrDefault(u => u.Id == chatUser.UserId),
+            }).ToList();
 
             return new ChatSearchDTO
             {
@@ -60,7 +61,7 @@ namespace sciencehub_community.Features.Chats.Services
                 Content = chat.Content,
                 CreatedAt = chat.CreatedAt,
                 UpdatedAt = chat.UpdatedAt,
-                ChatUsersData = chatUsersData,
+                ChatUsers = chatUsers, 
                 IsPublic = chat.IsPublic,
             };
         }
