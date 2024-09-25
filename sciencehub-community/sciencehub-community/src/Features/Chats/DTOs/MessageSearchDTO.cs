@@ -1,16 +1,15 @@
 using sciencehub_community.Core.Users.Models;
 
-namespace sciencehub_community.Features.Discussions.DTOs
+namespace sciencehub_community.Features.Chats.DTOs
 {
-    public class MessageSearchDTO
+    public class ChatMessageSearchDTO
     {
-        public string Id { get; set; } = string.Empty;
-        public string UserId { get; set; } = string.Empty;
+        public int Id { get; set; }
+        public int UserId { get; set; }
         public int ChatId { get; set; }
-        public User? user { get; set; }
+        public UserSmallDTO? User { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public string? Content { get; set; }
-        public List<MessageSearchDTO>? Messages { get; set; }
     }
 }

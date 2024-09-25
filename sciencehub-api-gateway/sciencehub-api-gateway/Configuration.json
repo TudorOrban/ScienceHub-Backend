@@ -96,6 +96,18 @@
             ],
             "UpstreamPathTemplate": "/api/v1/chats/{everything}",
             "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"]
+        },
+        {
+            "DownstreamPathTemplate": "/api/v1/chat-messages/{everything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "sciencehub-community-service",
+                    "Port": 8081
+                }
+            ],
+            "UpstreamPathTemplate": "/api/v1/chat-messages/{everything}",
+            "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"]
         }
     ],
     "ReRoutes": [

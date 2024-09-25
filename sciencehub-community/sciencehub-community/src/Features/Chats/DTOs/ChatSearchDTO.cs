@@ -1,4 +1,3 @@
-using sciencehub_community.Core.Users.Models;
 using sciencehub_community.Features.Chats.Models;
 
 namespace sciencehub_community.Features.Chats.DTOs

@@ -14,7 +14,7 @@ namespace sciencehub_community.Features.Chats.Models
         public int ChatId { get; set; }
 
         [Column("user_id")]
-        public string? UserId { get; set; }
+        public int UserId { get; set; }
 
         [Column("created_at")]
         public DateTime CreatedAt { get; set; }

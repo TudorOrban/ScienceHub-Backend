@@ -36,6 +36,8 @@ namespace sciencehub_community.Core.Config
             builder.Services.AddScoped<IDiscussionService, DiscussionService>();
             builder.Services.AddScoped<IChatRepository, ChatRepository>();
             builder.Services.AddScoped<IChatService, ChatService>();
+            builder.Services.AddScoped<IChatMessageRepository, ChatMessageRepository>();
+            builder.Services.AddScoped<IChatMessageService, ChatMessageService>();
 
             // Inter-communication services
             builder.Services.AddScoped<IUserService, UserService>();
