@@ -1,6 +1,7 @@
 
 
 using sciencehub_community.Core.Config;
+using sciencehub_community.Features.Chats.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 

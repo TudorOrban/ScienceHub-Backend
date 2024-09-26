@@ -6,6 +6,7 @@ using sciencehub_community.Core.Users.Services;
 using sciencehub_community.Data;
 using sciencehub_community.Exceptions;
 using sciencehub_community.Exceptions.Errors;
+using sciencehub_community.Features.Chats.Hubs;
 using sciencehub_community.Features.Chats.Repositories;
 using sciencehub_community.Features.Chats.Services;
 using sciencehub_community.Features.Discussions.Repositories;
@@ -23,7 +24,7 @@ namespace sciencehub_community.Core.Config
             ConfigureCors(builder);
 
             var app = builder.Build();
-            ConfigureMiddleware(app);
+            ConfigureHTTP(app);
 
             return app;
         }
@@ -42,6 +43,8 @@ namespace sciencehub_community.Core.Config
             // Inter-communication services
             builder.Services.AddScoped<IUserService, UserService>();
 
+            // Real-time services
+            builder.Services.AddSignalR();
             
             // Configure Json Options
             builder.Services.AddControllers().AddJsonOptions(options => {
@@ -103,26 +106,26 @@ namespace sciencehub_community.Core.Config
                 options.AddPolicy("AllowSpecificOrigin",
                     corsBuilder => corsBuilder.WithOrigins("http://localhost:3000")
                                               .AllowAnyHeader()
-                                              .AllowAnyMethod());
+                                              .AllowAnyMethod()
+                                              .AllowCredentials());
             });
         }
 
-        public static void ConfigureMiddleware(WebApplication app)
+        public static void ConfigureHTTP(WebApplication app)
         {
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
-
             app.UseMiddleware<CustomErrorHandlingMiddleware>();
             app.UseHttpsRedirection();
 
             // Apply CORS policy
             app.UseCors("AllowSpecificOrigin");
+            
+            app.UseRouting();
+
+            app.UseAuthentication();
             app.UseAuthorization();
+            
             app.MapControllers();
+            app.MapHub<ChatHub>("/chatHub");
         }
     }
 }

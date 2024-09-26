@@ -108,6 +108,31 @@
             ],
             "UpstreamPathTemplate": "/api/v1/chat-messages/{everything}",
             "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"]
+        },
+        
+        {
+            "DownstreamPathTemplate": "/chatHub/negotiate",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "sciencehub-community-service",
+                    "Port": 8081
+                }
+            ],
+            "UpstreamPathTemplate": "/chatHub/negotiate",
+            "UpstreamHttpMethod": ["POST"]
+        },
+        {
+            "DownstreamPathTemplate": "/chatHub",
+            "DownstreamScheme": "ws",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "sciencehub-community-service",
+                    "Port": 8081
+                }
+            ],
+            "UpstreamPathTemplate": "/chatHub",
+            "UpstreamHttpMethod": ["GET"]
         }
     ],
     "ReRoutes": [
