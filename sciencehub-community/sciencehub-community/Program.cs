@@ -1,7 +1,6 @@
 
 
 using sciencehub_community.Core.Config;
-using sciencehub_community.Features.Chats.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,5 +9,6 @@ builder.WebHost.UseUrls($"http://*:{port}");
 
 var app = ConfigLoader.ConfigureApplication(builder, false);
 
+Console.WriteLine("Starting application setup...");
 app.Run();
 
