@@ -51,7 +51,7 @@ namespace sciencehub_core.Core.Config
             builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
             builder.Services.AddScoped<IProjectService, ProjectService>();
 
-            // New works
+            // Works
             builder.Services.AddScoped<IWorkRepository, WorkRepository>();
             builder.Services.AddScoped<Features.Works.Services.IWorkService, Features.Works.Services.WorkService>();
 
@@ -129,7 +129,6 @@ namespace sciencehub_core.Core.Config
             }
         }
 
-        // Configure CORS policy
         public static void ConfigureCors(WebApplicationBuilder builder)
         {
             builder.Services.AddCors(options =>
